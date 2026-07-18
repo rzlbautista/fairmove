@@ -1,0 +1,75 @@
+{
+  "id": "job_daniel_rockhill",
+  "vertical": "moving",
+  "specVersion": 1,
+  "customerName": "Daniel Reyes",
+  "customerPhone": "+1-803-555-0177",
+  "origin": {
+    "label": "1420 Cherry Rd, Apt 3B",
+    "city": "Rock Hill",
+    "state": "SC",
+    "zip": "29732"
+  },
+  "destination": {
+    "label": "812 Central Ave, Unit 5",
+    "city": "Charlotte",
+    "state": "NC",
+    "zip": "28204"
+  },
+  "miles": 45,
+  "moveDate": "2026-08-15",
+  "dateFlexible": true,
+  "bedrooms": 2,
+  "inventory": [
+    { "name": "Queen bed frame and mattress", "quantity": 1, "room": "primary bedroom", "handling": "disassembly required" },
+    { "name": "Full bed frame and mattress", "quantity": 1, "room": "second bedroom", "handling": "" },
+    { "name": "6-drawer dresser", "quantity": 2, "room": "primary bedroom", "handling": "" },
+    { "name": "Nightstand", "quantity": 3, "room": "bedrooms", "handling": "" },
+    { "name": "3-seat sofa", "quantity": 1, "room": "living room", "handling": "will not fit in elevator" },
+    { "name": "Armchair", "quantity": 2, "room": "living room", "handling": "" },
+    { "name": "65-inch TV", "quantity": 1, "room": "living room", "handling": "no original box" },
+    { "name": "TV console", "quantity": 1, "room": "living room", "handling": "" },
+    { "name": "Bookshelf", "quantity": 3, "room": "living room", "handling": "must be emptied" },
+    { "name": "Dining table", "quantity": 1, "room": "dining room", "handling": "legs come off" },
+    { "name": "Dining chair", "quantity": 4, "room": "dining room", "handling": "" },
+    { "name": "Desk", "quantity": 1, "room": "office", "handling": "" },
+    { "name": "Office chair", "quantity": 1, "room": "office", "handling": "" },
+    { "name": "Filing cabinet", "quantity": 1, "room": "office", "handling": "" },
+    { "name": "Washer", "quantity": 1, "room": "kitchen", "handling": "needs disconnecting" },
+    { "name": "Dryer", "quantity": 1, "room": "kitchen", "handling": "needs disconnecting" },
+    { "name": "Refrigerator", "quantity": 1, "room": "kitchen", "handling": "customer owns it" },
+    { "name": "Medium boxes", "quantity": 34, "room": "whole apartment", "handling": "customer packed" },
+    { "name": "Wardrobe boxes", "quantity": 4, "room": "bedrooms", "handling": "" },
+    { "name": "Bicycle", "quantity": 2, "room": "patio", "handling": "" },
+    { "name": "Treadmill", "quantity": 1, "room": "second bedroom", "handling": "heavy, does not fold" }
+  ],
+  "specialItems": [
+    { "kind": "treadmill", "description": "NordicTrack, approx 300 lb, does not fold" }
+  ],
+  "originAccess": {
+    "floor": 3,
+    "elevator": false,
+    "stairFlights": 2,
+    "longCarryFeet": 90,
+    "parkingNotes": "No loading zone; truck must park on Cherry Rd"
+  },
+  "destinationAccess": {
+    "floor": 2,
+    "elevator": true,
+    "stairFlights": 0,
+    "longCarryFeet": 40,
+    "parkingNotes": "Loading dock must be reserved with building management"
+  },
+  "packing": "none",
+  "valuationCoverage": "fullValue",
+  "accessNotes": "Daniel is packing all boxes himself. Elevator at the Charlotte building is small — the 3-seat sofa will not fit and has to go up the stairwell. Dock reservation needed before 8am.",
+  "source": {
+    "paths": ["voice", "document"],
+    "interviewConversationId": "conv_estimator_demo_001",
+    "documentNames": ["daniel-inventory.txt"],
+    "notes": "Voice interview captured route, date, access and packing. Inventory list uploaded and merged."
+  },
+  "confirmedAt": null,
+  "createdAt": "2026-07-19T02:00:00.000Z",
+  "updatedAt": "2026-07-19T02:00:00.000Z"
+}

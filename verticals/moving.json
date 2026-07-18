@@ -1,0 +1,315 @@
+{
+  "id": "moving",
+  "version": "1.0.0",
+  "label": "Residential Moving",
+  "consumerNoun": "move",
+  "counterpartyNoun": "moving company",
+  "currency": "USD",
+
+  "marketEvidence": {
+    "spreadClaim": "Real quotes for Rock Hill -> Charlotte (45 mi, standard service) ranged from $1,158 to $6,506 — a 5.6x spread for identical work.",
+    "observedLow": 1158,
+    "observedHigh": 6506,
+    "sources": [
+      { "name": "Challenge brief price survey", "note": "Rock Hill -> Charlotte, 45 mi, standard 2BR service" },
+      { "name": "FMCSA", "note": "Sight-unseen estimates are 40% more likely to blow up on moving day" },
+      { "name": "BBB", "note": "13,000+ complaints/negative reviews against movers per year, largely unexpected price hikes" },
+      { "name": "moveBuddha / industry rate cards", "note": "Local crew-hour rates and mileage conventions" }
+    ]
+  },
+
+  "jobSpecTaxonomy": {
+    "requiredFields": [
+      "origin",
+      "destination",
+      "moveDate",
+      "bedrooms",
+      "originAccess.floor",
+      "destinationAccess.floor",
+      "packing"
+    ],
+    "interviewQuestions": [
+      { "id": "route", "field": "origin,destination", "ask": "Where are you moving from, and where to?", "why": "Mileage and crew travel time drive the base." },
+      { "id": "date", "field": "moveDate", "ask": "What date are you targeting, and is it flexible by a day or two?", "why": "Weekend and month-end dates carry surcharges that are negotiable." },
+      { "id": "size", "field": "bedrooms", "ask": "How many bedrooms, and roughly how full are they?", "why": "Bedrooms map to crew size and truck hours." },
+      { "id": "inventory", "field": "inventory", "ask": "Walk me through the large items — beds, sofas, dressers, appliances, anything over about 100 pounds.", "why": "Large or special items are the number one source of day-of surprises." },
+      { "id": "specialItems", "field": "specialItems", "ask": "Anything unusual — a piano, a gun safe, a treadmill, a fish tank, a large TV?", "why": "Special items carry named fees that must be quoted upfront." },
+      { "id": "stairsOrigin", "field": "originAccess", "ask": "At the pickup address, what floor are you on, and is there an elevator?", "why": "Stairs and long carries are the most common add-on fees." },
+      { "id": "stairsDestination", "field": "destinationAccess", "ask": "And at the new place — what floor, elevator or stairs?", "why": "Same fee applies at delivery." },
+      { "id": "carry", "field": "originAccess.longCarryFeet", "ask": "How far is the truck able to park from the door at each end?", "why": "Over 75 feet typically triggers a long-carry charge." },
+      { "id": "packing", "field": "packing", "ask": "Do you want them packing for you, partial packing, or are you packing everything yourself?", "why": "Packing is the biggest upsell lever in the industry." },
+      { "id": "valuation", "field": "valuationCoverage", "ask": "Do you want basic released-value coverage or full-value protection?", "why": "Released value is $0.60/lb — most people do not realise how low that is." },
+      { "id": "constraints", "field": "accessNotes", "ask": "Anything else that would slow a crew down — narrow doors, a gate code, a loading dock reservation, parking permits?", "why": "Access surprises are billed hourly on the day." }
+    ]
+  },
+
+  "priceModel": {
+    "notes": "Transparent reference model used to build the fair-price benchmark and to give counterparty agents an internal cost basis. Not shown to counterparties.",
+    "crewHourlyRateByCrewSize": { "2": 120, "3": 165, "4": 210 },
+    "bedroomProfile": {
+      "0": { "crewSize": 2, "loadHours": 3.0 },
+      "1": { "crewSize": 2, "loadHours": 4.0 },
+      "2": { "crewSize": 3, "loadHours": 5.5 },
+      "3": { "crewSize": 3, "loadHours": 7.5 },
+      "4": { "crewSize": 4, "loadHours": 9.5 }
+    },
+    "driveHoursPerMile": 0.022,
+    "truckFeeFlat": 95,
+    "fuelPerMile": 1.15,
+    "stairsFeePerFlight": 75,
+    "elevatorFee": 60,
+    "longCarryFeePer50Feet": 55,
+    "packingRates": { "none": 0, "partial": 320, "full": 780 },
+    "specialItemFees": { "piano": 350, "gunSafe": 300, "treadmill": 90, "poolTable": 400, "fishTank": 120 },
+    "valuationRates": { "released": 0, "fullValue": 185 },
+    "weekendSurchargePct": 0.08,
+    "monthEndSurchargePct": 0.06,
+    "marketFactor": 1.18
+  },
+
+  "feeTaxonomy": [
+    { "code": "base", "label": "Base labor (crew x hours)", "expected": true, "negotiable": false },
+    { "code": "travel", "label": "Travel / double-drive time", "expected": true, "negotiable": true },
+    { "code": "truck", "label": "Truck fee", "expected": true, "negotiable": true },
+    { "code": "fuel", "label": "Fuel surcharge", "expected": true, "negotiable": true },
+    { "code": "stairs", "label": "Stairs / flights", "expected": false, "negotiable": true },
+    { "code": "elevator", "label": "Elevator fee", "expected": false, "negotiable": true },
+    { "code": "longCarry", "label": "Long carry", "expected": false, "negotiable": true },
+    { "code": "packing", "label": "Packing labor and materials", "expected": false, "negotiable": true },
+    { "code": "materials", "label": "Boxes / shrink wrap / tape", "expected": false, "negotiable": true },
+    { "code": "specialItem", "label": "Special item handling", "expected": false, "negotiable": false },
+    { "code": "valuation", "label": "Valuation coverage", "expected": false, "negotiable": true },
+    { "code": "surcharge", "label": "Weekend / peak-date surcharge", "expected": false, "negotiable": true },
+    { "code": "deposit", "label": "Deposit", "expected": false, "negotiable": true },
+    { "code": "minimum", "label": "Minimum hours billed", "expected": false, "negotiable": true }
+  ],
+
+  "redFlagRules": [
+    {
+      "id": "below_market_30",
+      "severity": "high",
+      "label": "More than 30% below fair-market benchmark",
+      "test": { "type": "totalBelowBenchmarkPct", "threshold": 0.30 },
+      "explain": "A quote this far below the benchmark is a warning sign, not a win. It usually means fees are being withheld until moving day.",
+      "citation": "FMCSA: sight-unseen and underpriced estimates are 40% more likely to change on moving day."
+    },
+    {
+      "id": "above_market_40",
+      "severity": "medium",
+      "label": "More than 40% above fair-market benchmark",
+      "test": { "type": "totalAboveBenchmarkPct", "threshold": 0.40 },
+      "explain": "Priced well above the benchmark for this job. Usually recoverable with a competing quote."
+    },
+    {
+      "id": "non_binding",
+      "severity": "high",
+      "label": "Non-binding estimate",
+      "test": { "type": "flagFalse", "field": "binding" },
+      "explain": "A non-binding estimate can legally rise on moving day. Binding or not-to-exceed is the protection you want.",
+      "citation": "BBB logs 13,000+ mover complaints a year, largely unexpected price hikes."
+    },
+    {
+      "id": "fees_withheld",
+      "severity": "medium",
+      "label": "Add-on fees only disclosed when pushed",
+      "test": { "type": "lateDisclosedFeeCount", "threshold": 2 },
+      "explain": "Fees that only appear when you ask are the mechanism behind the 30%+ inflated final bill."
+    },
+    {
+      "id": "large_deposit",
+      "severity": "medium",
+      "label": "Deposit above 20% of total",
+      "test": { "type": "lineItemPctOfTotal", "field": "deposit", "threshold": 0.20 },
+      "explain": "Large upfront deposits are associated with hostage-load disputes, which have nearly tripled since 2017."
+    },
+    {
+      "id": "no_usdot",
+      "severity": "medium",
+      "label": "No USDOT / state license number given",
+      "test": { "type": "missingField", "field": "usdotNumber" },
+      "explain": "Licensed interstate and intrastate movers can produce a USDOT or state number on request."
+    },
+    {
+      "id": "released_valuation_only",
+      "severity": "low",
+      "label": "Released-value coverage only ($0.60/lb)",
+      "test": { "type": "equals", "field": "valuationOffered", "value": "released" },
+      "explain": "$0.60 per pound means a 50 lb TV is covered for $30. Ask what full-value protection costs."
+    }
+  ],
+
+  "negotiationLevers": [
+    { "id": "price_match", "label": "Price match a real competing quote", "script": "I have an itemised quote from {competitor} at {competitorTotal} for this exact job. Can you match or beat it?", "requiresEvidence": true },
+    { "id": "waive_surcharge", "label": "Waive weekend / peak-date surcharge", "script": "Can you take the weekend surcharge off if I keep the date?", "requiresEvidence": false },
+    { "id": "date_flexibility", "label": "Trade date flexibility for price", "script": "If I move mid-week instead, what does that do to the number?", "requiresEvidence": false },
+    { "id": "bundle_packing", "label": "Get packing or materials included", "script": "If I stay at your price, will you include the packing materials?", "requiresEvidence": false },
+    { "id": "cap_the_estimate", "label": "Convert to binding / not-to-exceed", "script": "Can you put that in writing as a not-to-exceed number?", "requiresEvidence": false },
+    { "id": "drop_deposit", "label": "Reduce or remove deposit", "script": "Can we do this with no deposit, card on file instead?", "requiresEvidence": false },
+    { "id": "valuation_upgrade", "label": "Full-value protection included", "script": "Include full-value protection at that price and I will book today.", "requiresEvidence": false }
+  ],
+
+  "callPolicy": {
+    "disclosure": "Hi, I should say upfront — I'm an AI assistant calling on behalf of a customer, {customerName}, who is getting quotes for a move. Is it alright if I run through the details with you?",
+    "robotAnswer": "Yes, I am — I'm an AI assistant, and {customerName} is a real customer with a real move on {moveDate}. I have the full inventory in front of me and I can book today if the number works.",
+    "honestyConstraints": [
+      "Never invent inventory, dimensions, or access details that are not in the confirmed JobSpec.",
+      "Never cite a competing quote that is not persisted in the FairMove store with a conversation ID.",
+      "Never claim a quote is binding unless the counterparty said so.",
+      "Never misrepresent the move date, the customer's flexibility, or a deadline.",
+      "Disclose AI status immediately when asked, and do not deflect."
+    ],
+    "requiredOutcomes": ["quote", "callback", "decline"],
+    "mustAskFor": ["itemisedFees", "binding", "usdotNumber", "valuationOptions", "depositTerms"]
+  },
+
+  "counterparties": [
+    {
+      "id": "tough",
+      "style": "ToughNegotiator",
+      "companyName": "Ironclad Moving & Storage",
+      "phone": "+1-704-555-0142",
+      "rating": 4.6,
+      "reviewCount": 412,
+      "usdotNumber": "USDOT 2287441",
+      "voiceProfile": "gruff, time-pressed dispatcher",
+      "pricing": {
+        "marginMultiplier": 1.32,
+        "floorMultiplier": 1.06,
+        "disclosesUpfront": ["base", "travel", "truck", "fuel"],
+        "disclosesOnlyWhenAsked": ["stairs", "longCarry", "valuation"],
+        "binding": true,
+        "depositPct": 0.10,
+        "valuationOffered": "fullValue"
+      },
+      "behaviour": {
+        "opensWith": "highball",
+        "interruptsEarly": true,
+        "resistsUntilEvidence": true,
+        "concessionWithoutEvidencePct": 0.02,
+        "concessionWithEvidencePct": 0.14,
+        "requiresItemisedCompetitor": true,
+        "willMatchButNotBeat": false,
+        "termsConcessions": ["cap_the_estimate", "drop_deposit"],
+        "asksIfRobot": true
+      }
+    },
+    {
+      "id": "lowball",
+      "style": "Lowballer",
+      "companyName": "Queen City Value Movers",
+      "phone": "+1-704-555-0178",
+      "rating": 3.9,
+      "reviewCount": 88,
+      "usdotNumber": null,
+      "voiceProfile": "fast, breezy, vague on specifics",
+      "pricing": {
+        "marginMultiplier": 0.61,
+        "floorMultiplier": 0.58,
+        "disclosesUpfront": ["base"],
+        "disclosesOnlyWhenAsked": ["travel", "truck", "fuel", "stairs", "longCarry", "materials", "minimum"],
+        "binding": false,
+        "depositPct": 0.25,
+        "valuationOffered": "released"
+      },
+      "behaviour": {
+        "opensWith": "lowball",
+        "interruptsEarly": false,
+        "resistsUntilEvidence": false,
+        "concessionWithoutEvidencePct": 0.0,
+        "concessionWithEvidencePct": 0.0,
+        "requiresItemisedCompetitor": false,
+        "willMatchButNotBeat": false,
+        "termsConcessions": [],
+        "evasiveOnFees": true,
+        "asksIfRobot": false
+      }
+    },
+    {
+      "id": "upsell",
+      "style": "Upseller",
+      "companyName": "Carolina Premier Relocation",
+      "phone": "+1-704-555-0193",
+      "rating": 4.4,
+      "reviewCount": 236,
+      "usdotNumber": "USDOT 3115902",
+      "voiceProfile": "warm, consultative, always adding a package",
+      "pricing": {
+        "marginMultiplier": 1.14,
+        "floorMultiplier": 0.94,
+        "disclosesUpfront": ["base", "travel", "truck", "fuel", "packing", "materials", "surcharge"],
+        "disclosesOnlyWhenAsked": ["stairs", "valuation"],
+        "binding": true,
+        "depositPct": 0.15,
+        "valuationOffered": "fullValue",
+        "pushesPackages": ["packing", "materials", "valuation"]
+      },
+      "behaviour": {
+        "opensWith": "package",
+        "interruptsEarly": false,
+        "resistsUntilEvidence": false,
+        "concessionWithoutEvidencePct": 0.04,
+        "concessionWithEvidencePct": 0.11,
+        "requiresItemisedCompetitor": true,
+        "willMatchButNotBeat": true,
+        "termsConcessions": ["waive_surcharge", "bundle_packing", "valuation_upgrade"],
+        "asksIfRobot": true
+      }
+    },
+    {
+      "id": "stonewall",
+      "style": "Stonewaller",
+      "companyName": "Piedmont Family Movers",
+      "phone": "+1-704-555-0116",
+      "rating": 4.8,
+      "reviewCount": 51,
+      "usdotNumber": "USDOT 1994022",
+      "voiceProfile": "polite but immovable office manager",
+      "optional": true,
+      "outcomePolicy": {
+        "kind": "decline",
+        "reason": "no_phone_quotes",
+        "statement": "We don't give prices over the phone — we do a walkthrough first, that's just our policy.",
+        "callbackOffer": true
+      },
+      "pricing": {
+        "marginMultiplier": 1.0,
+        "floorMultiplier": 1.0,
+        "disclosesUpfront": [],
+        "disclosesOnlyWhenAsked": [],
+        "binding": true,
+        "depositPct": 0.0,
+        "valuationOffered": "fullValue"
+      },
+      "behaviour": {
+        "opensWith": "stonewall",
+        "interruptsEarly": false,
+        "resistsUntilEvidence": true,
+        "concessionWithoutEvidencePct": 0.0,
+        "concessionWithEvidencePct": 0.0,
+        "requiresItemisedCompetitor": true,
+        "willMatchButNotBeat": false,
+        "termsConcessions": [],
+        "asksIfRobot": false
+      }
+    }
+  ],
+
+  "callListProvenance": {
+    "note": "In production this list is built programmatically from Google Places / Yelp Fusion by category + ZIP radius. The schema below mirrors the Places response so the swap is a fetch, not a refactor.",
+    "querySchema": {
+      "provider": "google_places",
+      "endpoint": "places:searchText",
+      "textQuery": "moving companies near {originZip}",
+      "includedType": "moving_company",
+      "radiusMeters": 40000,
+      "fields": ["displayName", "nationalPhoneNumber", "rating", "userRatingCount", "formattedAddress", "businessStatus"]
+    },
+    "rankingCriteria": ["rating >= 3.5", "userRatingCount >= 25", "businessStatus == OPERATIONAL"]
+  },
+
+  "reportCopy": {
+    "headline": "Same job, same fees, ranked honestly.",
+    "benchmarkLabel": "FairMove benchmark for this job",
+    "recommendationTemplate": "We recommend {company} at {total}. {reason}"
+  }
+}

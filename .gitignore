@@ -1,0 +1,56 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# Next.js
+.next/
+out/
+
+# Build and test output
+dist/
+build/
+coverage/
+test-results/
+playwright-report/
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Local databases and runtime data
+*.db
+*.db-shm
+*.db-wal
+data/
+recordings/
+uploads/
+tmp/
+temp/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# TypeScript and tooling caches
+*.tsbuildinfo
+.eslintcache
+.turbo/
+.cache/
+
+# Deployment metadata
+.vercel/
+
+# Local Claude Code state
+.claude/settings.local.json
