@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Job } from "@/lib/store/store";
 import type { CallRecord } from "@/lib/domain/quote";
 import type { Report } from "@/lib/domain/report";
@@ -55,6 +55,7 @@ export default function MissionControl({
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [openTranscript, setOpenTranscript] = useState<string | null>(null);
+  const [playbackCall, setPlaybackCall] = useState<CallRecord | null>(null);
 
   async function runGoldenPath() {
     setBusy("Running intake, three quote calls, and the negotiation…");
@@ -130,6 +131,7 @@ export default function MissionControl({
           benchmark={benchmark}
           openTranscript={openTranscript}
           setOpenTranscript={setOpenTranscript}
+          onWatch={setPlaybackCall}
         />
       )}
 
@@ -139,8 +141,11 @@ export default function MissionControl({
           calls={calls}
           openTranscript={openTranscript}
           setOpenTranscript={setOpenTranscript}
+          onWatch={setPlaybackCall}
         />
       )}
+
+      {playbackCall && <CallPlaybackModal call={playbackCall} onClose={() => setPlaybackCall(null)} />}
 
       {report && <ReportSection report={report} />}
 
@@ -303,11 +308,13 @@ function CallsSection({
   benchmark,
   openTranscript,
   setOpenTranscript,
+  onWatch,
 }: {
   calls: CallRecord[];
   benchmark: number;
   openTranscript: string | null;
   setOpenTranscript: (id: string | null) => void;
+  onWatch: (call: CallRecord) => void;
 }) {
   return (
     <section className="step">
@@ -331,6 +338,7 @@ function CallsSection({
             onToggle={() =>
               setOpenTranscript(openTranscript === call.conversationId ? null : call.conversationId)
             }
+            onWatch={() => onWatch(call)}
           />
         ))}
       </div>
@@ -343,11 +351,13 @@ function CallCard({
   benchmark,
   open,
   onToggle,
+  onWatch,
 }: {
   call: CallRecord;
   benchmark: number;
   open: boolean;
   onToggle: () => void;
+  onWatch: () => void;
 }) {
   const quote = call.quote;
   const vs = quote && benchmark ? ((quote.total - benchmark) / benchmark) * 100 : 0;
@@ -419,7 +429,10 @@ function CallCard({
         </div>
       )}
 
-      <div style={{ marginTop: 12 }}>
+      <div style={{ marginTop: 12, display: "flex", gap: 8, flexWrap: "wrap" }}>
+        <button className="ghost watch" onClick={onWatch}>
+          ▶ Watch call
+        </button>
         <button className="ghost" onClick={onToggle}>
           {open ? "Hide transcript" : `Transcript (${call.transcript.length} turns)`}
         </button>
@@ -450,6 +463,149 @@ function TranscriptView({ call, highlight }: { call: CallRecord; highlight?: num
   );
 }
 
+// ---------------------------------------------------------- call playback
+
+/** Milliseconds a turn stays "being said" before the next appears. */
+function turnDelay(text: string): number {
+  const words = text.split(/\s+/).length;
+  return Math.min(2600, 420 + words * 55);
+}
+
+const DIAL_MS = 1600;
+
+function CallPlaybackModal({ call, onClose }: { call: CallRecord; onClose: () => void }) {
+  const [phase, setPhase] = useState<"dialing" | "live" | "ended">("dialing");
+  const [visible, setVisible] = useState(0);
+  const [elapsed, setElapsed] = useState(0);
+  const [replayKey, setReplayKey] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const turns = call.transcript;
+
+  // Sequential reveal: dial tone → turns appear at speaking pace → ended.
+  useEffect(() => {
+    setPhase("dialing");
+    setVisible(0);
+    setElapsed(0);
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    let t = DIAL_MS;
+    timers.push(setTimeout(() => setPhase("live"), DIAL_MS));
+    turns.forEach((turn, i) => {
+      timers.push(setTimeout(() => setVisible(i + 1), t));
+      t += turnDelay(turn.text);
+    });
+    timers.push(setTimeout(() => setPhase("ended"), t + 400));
+    return () => timers.forEach(clearTimeout);
+  }, [call.conversationId, turns, replayKey]);
+
+  // Call timer.
+  useEffect(() => {
+    if (phase !== "live") return;
+    const id = setInterval(() => setElapsed((s) => s + 1), 1000);
+    return () => clearInterval(id);
+  }, [phase, replayKey]);
+
+  // Follow the conversation.
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
+  }, [visible, phase]);
+
+  // Escape closes.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  const mmss = `${String(Math.floor(elapsed / 60)).padStart(2, "0")}:${String(elapsed % 60).padStart(2, "0")}`;
+  const nextTurn = phase === "live" && visible < turns.length ? turns[visible] : null;
+  const skip = () => {
+    setVisible(turns.length);
+    setPhase("ended");
+  };
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="call-window" onClick={(e) => e.stopPropagation()}>
+        <div className="call-head">
+          <div className="call-avatar">{call.company.slice(0, 1)}</div>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div className="call-company">{call.company}</div>
+            <div className="call-number">
+              {call.phone} · <span className="style-tag">{call.style}</span>
+            </div>
+          </div>
+          <div style={{ textAlign: "right" }}>
+            <div className={`call-status ${phase}`}>
+              {phase === "dialing" ? (
+                <>
+                  <span className="pulse-dot" /> Dialling…
+                </>
+              ) : phase === "live" ? (
+                <>
+                  <span className="pulse-dot live" /> In call
+                </>
+              ) : (
+                "Call ended"
+              )}
+            </div>
+            <div className="call-timer">{phase === "dialing" ? "00:00" : mmss}</div>
+          </div>
+        </div>
+
+        <div className="bubbles" ref={scrollRef}>
+          {phase === "dialing" && <div className="bubble system">Ringing {call.phone}…</div>}
+          {turns.slice(0, visible).map((turn) => {
+            const side = turn.role === "agent" ? "agent" : turn.role === "system" ? "system" : "them";
+            return (
+              <div key={turn.index} className={`bubble-row ${side}`}>
+                <div className={`bubble ${side}`}>
+                  {side !== "system" && <div className="bubble-speaker">{turn.speaker}</div>}
+                  <div className="bubble-text">{turn.text}</div>
+                  {turn.tool && <span className="turn-tool">tool: {turn.tool}</span>}
+                </div>
+              </div>
+            );
+          })}
+          {nextTurn && (
+            <div className={`bubble-row ${nextTurn.role === "agent" ? "agent" : "them"}`}>
+              <div className={`bubble typing ${nextTurn.role === "agent" ? "agent" : "them"}`}>
+                <span className="dot" />
+                <span className="dot" />
+                <span className="dot" />
+              </div>
+            </div>
+          )}
+          {phase === "ended" && (
+            <div className="bubble system">
+              Call ended — outcome: {call.outcome ?? "none"}
+              {call.quote ? ` · ${usd(call.quote.total)}` : ""}
+            </div>
+          )}
+        </div>
+
+        <div className="call-foot">
+          {call.outcome && <span className={`outcome ${call.outcome}`}>{call.outcome}</span>}
+          {call.quote && <span className="call-total">{usd(call.quote.total)}</span>}
+          <span style={{ flex: 1 }} />
+          {phase !== "ended" && (
+            <button className="ghost" onClick={skip}>
+              Skip to end
+            </button>
+          )}
+          {phase === "ended" && (
+            <button className="ghost" onClick={() => setReplayKey((k) => k + 1)}>
+              ↺ Replay
+            </button>
+          )}
+          <button className="ghost" onClick={onClose}>
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ------------------------------------------------------------- negotiation
 
 function NegotiationSection({
@@ -457,11 +613,13 @@ function NegotiationSection({
   calls,
   openTranscript,
   setOpenTranscript,
+  onWatch,
 }: {
   report: Report;
   calls: CallRecord[];
   openTranscript: string | null;
   setOpenTranscript: (id: string | null) => void;
+  onWatch: (call: CallRecord) => void;
 }) {
   const n = report.negotiation;
   const closerCall = calls.find((c) => c.role === "closer");
@@ -517,16 +675,19 @@ function NegotiationSection({
         )}
 
         {closerCall && (
-          <div style={{ marginTop: 14 }}>
+          <div style={{ marginTop: 14, display: "flex", gap: 8, flexWrap: "wrap" }}>
+            <button className="ghost watch" onClick={() => onWatch(closerCall)}>
+              ▶ Watch the negotiation
+            </button>
             <button
               className="ghost"
               onClick={() => setOpenTranscript(open ? null : closerCall.conversationId)}
             >
-              {open ? "Hide negotiation transcript" : "Play back the negotiation transcript"}
+              {open ? "Hide negotiation transcript" : "Read the negotiation transcript"}
             </button>
-            {open && <TranscriptView call={closerCall} highlight={n.proofTurn} />}
           </div>
         )}
+        {closerCall && open && <TranscriptView call={closerCall} highlight={n.proofTurn} />}
       </div>
     </section>
   );
