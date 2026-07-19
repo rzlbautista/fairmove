@@ -12,7 +12,9 @@ const ProviderConfigSchema = z.object({
 
 export type ProviderConfig = z.infer<typeof ProviderConfigSchema>;
 
-const FILE = path.join(process.cwd(), "data", "provider-config.json");
+const ON_VERCEL = Boolean(process.env.VERCEL);
+const DATA_DIR = ON_VERCEL ? path.join("/tmp", "fairmove-data") : path.join(process.cwd(), "data");
+const FILE = path.join(DATA_DIR, "provider-config.json");
 
 export function readProviderConfig(): ProviderConfig {
   const env: ProviderConfig = {

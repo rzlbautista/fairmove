@@ -24,6 +24,8 @@ playwright-report/
 *.db-shm
 *.db-wal
 data/
+!data/
+!data/seed.json
 recordings/
 uploads/
 tmp/

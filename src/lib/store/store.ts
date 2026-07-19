@@ -11,8 +11,15 @@ import { CallRecordSchema, type CallRecord } from "../domain/quote";
  * conversation without producing two records.
  */
 
-const DATA_DIR = path.join(process.cwd(), "data");
+/**
+ * Locally we write under ./data. On Vercel the deployment FS is read-only, so
+ * we write under /tmp and bootstrap from the committed golden-path seed so
+ * Overview / Calls / Results still show a complete demo on first load.
+ */
+const ON_VERCEL = Boolean(process.env.VERCEL);
+const DATA_DIR = ON_VERCEL ? path.join("/tmp", "fairmove-data") : path.join(process.cwd(), "data");
 const DB_FILE = path.join(DATA_DIR, "fairmove.json");
+const SEED_FILE = path.join(process.cwd(), "data", "seed.json");
 
 export interface Job {
   id: string;
@@ -36,15 +43,36 @@ function ensureDir(): void {
   if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 
+function loadSeed(): DbShape {
+  if (!fs.existsSync(SEED_FILE)) return structuredClone(EMPTY);
+  try {
+    const parsed = JSON.parse(fs.readFileSync(SEED_FILE, "utf8")) as DbShape;
+    return { ...structuredClone(EMPTY), ...parsed };
+  } catch {
+    return structuredClone(EMPTY);
+  }
+}
+
 function read(): DbShape {
   ensureDir();
-  if (!fs.existsSync(DB_FILE)) return structuredClone(EMPTY);
+  if (!fs.existsSync(DB_FILE)) {
+    const seeded = loadSeed();
+    if (seeded.jobs.length > 0 || seeded.calls.length > 0) {
+      try {
+        write(seeded);
+      } catch {
+        // Read-only environments can still serve the seed without persisting.
+      }
+      return seeded;
+    }
+    return structuredClone(EMPTY);
+  }
   try {
     const parsed = JSON.parse(fs.readFileSync(DB_FILE, "utf8")) as DbShape;
     return { ...structuredClone(EMPTY), ...parsed };
   } catch {
     // A half-written file must not take the demo down.
-    return structuredClone(EMPTY);
+    return loadSeed();
   }
 }
 

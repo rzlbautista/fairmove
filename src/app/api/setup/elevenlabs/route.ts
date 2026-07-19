@@ -70,8 +70,104 @@ async function provisionEstimator() {
           "Submit the moving job specification after the customer has reviewed and confirmed your summary.",
         parameters: {
           type: "object",
-          description: "The explicitly confirmed moving job details.",
-          additionalProperties: true,
+          properties: {
+            customerName: { type: "string", description: "Customer's full name." },
+            customerPhone: { type: "string", description: "Customer's contact phone number." },
+            origin: {
+              type: "object",
+              description: "Where the move starts.",
+              properties: {
+                label: { type: "string", description: "Street address or short label." },
+                city: { type: "string", description: "City." },
+                state: { type: "string", description: "Two-letter US state code, e.g. NC." },
+                zip: { type: "string", description: "5-digit ZIP code." },
+              },
+            },
+            destination: {
+              type: "object",
+              description: "Where the move ends.",
+              properties: {
+                label: { type: "string", description: "Street address or short label." },
+                city: { type: "string", description: "City." },
+                state: { type: "string", description: "Two-letter US state code, e.g. NC." },
+                zip: { type: "string", description: "5-digit ZIP code." },
+              },
+            },
+            miles: { type: "number", description: "Distance in miles between origin and destination." },
+            moveDate: { type: "string", description: "Move date, formatted YYYY-MM-DD." },
+            dateFlexible: { type: "boolean", description: "Whether the move date is flexible." },
+            bedrooms: { type: "number", description: "Number of bedrooms, 0 to 4." },
+            packing: {
+              type: "string",
+              description: "Packing service level.",
+              enum: ["none", "partial", "full"],
+            },
+            valuationCoverage: {
+              type: "string",
+              description: "Valuation/insurance coverage.",
+              enum: ["released", "fullValue"],
+            },
+            accessNotes: { type: "string", description: "Any other access details worth noting." },
+            inventory: {
+              type: "array",
+              description: "Notable items to move.",
+              items: {
+                type: "object",
+                properties: {
+                  name: { type: "string", description: "Item name, e.g. sofa." },
+                  quantity: { type: "number", description: "How many." },
+                  room: { type: "string", description: "Room label." },
+                  handling: { type: "string", description: "Special handling, if any." },
+                },
+              },
+            },
+            specialItems: {
+              type: "array",
+              description: "Items that need special handling.",
+              items: {
+                type: "object",
+                properties: {
+                  kind: {
+                    type: "string",
+                    description: "Special item category.",
+                    enum: ["piano", "gunSafe", "treadmill", "poolTable", "fishTank", "other"],
+                  },
+                  description: { type: "string", description: "Details about the special item." },
+                },
+              },
+            },
+            originAccess: {
+              type: "object",
+              description: "Access conditions at the origin.",
+              properties: {
+                floor: { type: "number", description: "Floor number, 0 for ground." },
+                elevator: { type: "boolean", description: "Whether an elevator is available." },
+                stairFlights: { type: "number", description: "Flights of stairs to carry." },
+                longCarryFeet: { type: "number", description: "Feet from parking to door." },
+                parkingNotes: { type: "string", description: "Parking notes." },
+              },
+            },
+            destinationAccess: {
+              type: "object",
+              description: "Access conditions at the destination.",
+              properties: {
+                floor: { type: "number", description: "Floor number, 0 for ground." },
+                elevator: { type: "boolean", description: "Whether an elevator is available." },
+                stairFlights: { type: "number", description: "Flights of stairs to carry." },
+                longCarryFeet: { type: "number", description: "Feet from parking to door." },
+                parkingNotes: { type: "string", description: "Parking notes." },
+              },
+            },
+          },
+          required: [
+            "origin",
+            "destination",
+            "miles",
+            "moveDate",
+            "bedrooms",
+            "packing",
+            "valuationCoverage",
+          ],
         },
       },
     ],
@@ -137,9 +233,13 @@ async function provisionCaller() {
         parameters: {
           type: "object",
           properties: {
-            outcome: { type: "string", enum: ["quote", "callback", "decline"] },
+            outcome: {
+              type: "string",
+              description: "How the call ended.",
+              enum: ["quote", "callback", "decline"],
+            },
             total: { type: "number", description: "Quoted total in USD, if outcome is quote" },
-            notes: { type: "string" },
+            notes: { type: "string", description: "Brief notes about the outcome." },
           },
           required: ["outcome"],
         },

@@ -1,0 +1,3254 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "job_daniel_rockhill",
+      "spec": {
+        "id": "job_daniel_rockhill",
+        "vertical": "moving",
+        "specVersion": 1,
+        "customerName": "Daniel Reyes",
+        "customerPhone": "+1-803-555-0177",
+        "origin": {
+          "label": "1420 Cherry Rd, Apt 3B",
+          "city": "Rock Hill",
+          "state": "SC",
+          "zip": "29732"
+        },
+        "destination": {
+          "label": "812 Central Ave, Unit 5",
+          "city": "Charlotte",
+          "state": "NC",
+          "zip": "28204"
+        },
+        "miles": 45,
+        "moveDate": "2026-08-15",
+        "dateFlexible": true,
+        "bedrooms": 2,
+        "inventory": [
+          {
+            "name": "Queen bed frame and mattress",
+            "quantity": 1,
+            "room": "primary bedroom",
+            "handling": "disassembly required"
+          },
+          {
+            "name": "Full bed frame and mattress",
+            "quantity": 1,
+            "room": "second bedroom",
+            "handling": ""
+          },
+          {
+            "name": "6-drawer dresser",
+            "quantity": 2,
+            "room": "primary bedroom",
+            "handling": ""
+          },
+          {
+            "name": "Nightstand",
+            "quantity": 3,
+            "room": "bedrooms",
+            "handling": ""
+          },
+          {
+            "name": "3-seat sofa",
+            "quantity": 1,
+            "room": "living room",
+            "handling": "will not fit in elevator"
+          },
+          {
+            "name": "Armchair",
+            "quantity": 2,
+            "room": "living room",
+            "handling": ""
+          },
+          {
+            "name": "65-inch TV",
+            "quantity": 1,
+            "room": "living room",
+            "handling": "no original box"
+          },
+          {
+            "name": "TV console",
+            "quantity": 1,
+            "room": "living room",
+            "handling": ""
+          },
+          {
+            "name": "Bookshelf",
+            "quantity": 3,
+            "room": "living room",
+            "handling": "must be emptied"
+          },
+          {
+            "name": "Dining table",
+            "quantity": 1,
+            "room": "dining room",
+            "handling": "legs come off"
+          },
+          {
+            "name": "Dining chair",
+            "quantity": 4,
+            "room": "dining room",
+            "handling": ""
+          },
+          {
+            "name": "Desk",
+            "quantity": 1,
+            "room": "office",
+            "handling": ""
+          },
+          {
+            "name": "Office chair",
+            "quantity": 1,
+            "room": "office",
+            "handling": ""
+          },
+          {
+            "name": "Filing cabinet",
+            "quantity": 1,
+            "room": "office",
+            "handling": ""
+          },
+          {
+            "name": "Washer",
+            "quantity": 1,
+            "room": "kitchen",
+            "handling": "needs disconnecting"
+          },
+          {
+            "name": "Dryer",
+            "quantity": 1,
+            "room": "kitchen",
+            "handling": "needs disconnecting"
+          },
+          {
+            "name": "Refrigerator",
+            "quantity": 1,
+            "room": "kitchen",
+            "handling": "customer owns it"
+          },
+          {
+            "name": "Medium boxes",
+            "quantity": 34,
+            "room": "whole apartment",
+            "handling": "customer packed"
+          },
+          {
+            "name": "Wardrobe boxes",
+            "quantity": 4,
+            "room": "bedrooms",
+            "handling": ""
+          },
+          {
+            "name": "Bicycle",
+            "quantity": 2,
+            "room": "patio",
+            "handling": ""
+          },
+          {
+            "name": "Treadmill",
+            "quantity": 1,
+            "room": "second bedroom",
+            "handling": "heavy, does not fold"
+          }
+        ],
+        "specialItems": [
+          {
+            "kind": "treadmill",
+            "description": "NordicTrack, approx 300 lb, does not fold"
+          }
+        ],
+        "originAccess": {
+          "floor": 3,
+          "elevator": false,
+          "stairFlights": 2,
+          "longCarryFeet": 90,
+          "parkingNotes": "No loading zone; truck must park on Cherry Rd"
+        },
+        "destinationAccess": {
+          "floor": 2,
+          "elevator": true,
+          "stairFlights": 0,
+          "longCarryFeet": 40,
+          "parkingNotes": "Loading dock must be reserved with building management"
+        },
+        "packing": "none",
+        "valuationCoverage": "fullValue",
+        "accessNotes": "Daniel is packing all boxes himself. Elevator at the Charlotte building is small — the 3-seat sofa will not fit and has to go up the stairwell. Dock reservation needed before 8am.",
+        "source": {
+          "paths": [
+            "voice",
+            "document"
+          ],
+          "interviewConversationId": "conv_estimator_demo_001",
+          "documentNames": [
+            "daniel-inventory.txt"
+          ],
+          "notes": "Voice interview captured route, date, access and packing. Inventory list uploaded and merged."
+        },
+        "confirmedAt": null,
+        "createdAt": "2026-07-19T02:00:00.000Z",
+        "updatedAt": "2026-07-19T10:04:58.287Z"
+      },
+      "status": "reported",
+      "createdAt": "2026-07-19T08:13:46.813Z",
+      "updatedAt": "2026-07-19T10:04:58.290Z"
+    }
+  ],
+  "calls": [
+    {
+      "id": "call_sim-tough-demo",
+      "jobId": "job_daniel_rockhill",
+      "specVersion": 1,
+      "specFingerprint": "2e1c1342",
+      "role": "caller",
+      "counterpartyId": "tough",
+      "company": "Ironclad Moving & Storage",
+      "style": "ToughNegotiator",
+      "phone": "+1-704-555-0142",
+      "conversationId": "sim-tough-demo",
+      "provider": "simulation",
+      "status": "completed",
+      "startedAt": "2026-07-19T08:13:46.869Z",
+      "endedAt": "2026-07-19T08:16:01.239Z",
+      "durationMs": 134370,
+      "outcome": "quote",
+      "quote": {
+        "binding": true,
+        "lineItems": [
+          {
+            "code": "base",
+            "label": "Base labor — 3-person crew x 8.08 hrs",
+            "amount": 1759.82,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          },
+          {
+            "code": "travel",
+            "label": "Travel time — 0.99 hrs for 45 mi",
+            "amount": 215.62,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          },
+          {
+            "code": "truck",
+            "label": "Truck fee",
+            "amount": 125.4,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          },
+          {
+            "code": "fuel",
+            "label": "Fuel surcharge — 45 mi",
+            "amount": 68.31,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          },
+          {
+            "code": "elevator",
+            "label": "Elevator handling x1",
+            "amount": 79.2,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          },
+          {
+            "code": "specialItem",
+            "label": "Special item — treadmill",
+            "amount": 118.8,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          },
+          {
+            "code": "surcharge",
+            "label": "Peak-date surcharge (8%)",
+            "amount": 236.36,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          },
+          {
+            "code": "stairs",
+            "label": "Stairs — 2 flights",
+            "amount": 198,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 12
+          },
+          {
+            "code": "longCarry",
+            "label": "Long carry — 130 ft total",
+            "amount": 145.2,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 12
+          },
+          {
+            "code": "valuation",
+            "label": "Full-value protection",
+            "amount": 244.2,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 12
+          }
+        ],
+        "total": 3190.91,
+        "openingTotal": 2603.51,
+        "currency": "USD",
+        "usdotNumber": "USDOT 2287441",
+        "valuationOffered": "fullValue",
+        "depositAmount": 319.09,
+        "terms": [
+          "binding estimate",
+          "10% deposit at booking"
+        ]
+      },
+      "callback": null,
+      "decline": null,
+      "transcript": [
+        {
+          "index": 0,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Ironclad Moving & Storage, this is dispatch.",
+          "atMs": 3180,
+          "tool": null
+        },
+        {
+          "index": 1,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Hi, I should say upfront — I'm an AI assistant calling on behalf of a customer, Daniel Reyes, who is getting quotes for a move. Is it alright if I run through the details with you?",
+          "atMs": 12480,
+          "tool": null
+        },
+        {
+          "index": 2,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Hold on — am I talking to a real person, or is this one of those robocalls?",
+          "atMs": 17055,
+          "tool": null
+        },
+        {
+          "index": 3,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Yes, I am — I'm an AI assistant, and Daniel Reyes is a real customer with a real move on 2026-08-15. I have the full inventory in front of me and I can book today if the number works.",
+          "atMs": 26490,
+          "tool": null
+        },
+        {
+          "index": 4,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Huh. Alright, at least you said so. Go ahead.",
+          "atMs": 29715,
+          "tool": null
+        },
+        {
+          "index": 5,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Here's the job, and I'll give you the same detail I'm giving everyone:\n- Route: 1420 Cherry Rd, Apt 3B, Rock Hill SC 29732 -> 812 Central Ave, Unit 5, Charlotte NC 28204 (45 miles)\n- Date: 2026-08-15 (customer has some flexibility)\n- Size: 2-bedroom\n- Large items: 1x Queen bed frame and mattress (disassembly required), 2x Nightstand, 1x Full bed frame and mattress, 1x Nightstand, 1x Treadmill (heavy, does not fold), 2x Armchair, 1x TV console, 3x Bookshelf (must be emptied), 1x Dining table (legs come off), 4x Dining chair, 1x Desk, 1x Office chair, 1x Filing cabinet, 1x Washer (needs disconnecting), 1x Dryer (needs disconnecting), 1x Refrigerator (customer owns it), 2x Bicycle, 34x Medium boxes (customer packed), 4x Wardrobe boxes\n- Special items: treadmill — Treadmill (heavy, does not fold)\n- Pickup access: floor 3, 2 flight(s) of stairs, 90 ft carry from truck\n- Delivery access: floor 2, elevator available, 40 ft carry from truck (floor 2, elevator available, 40 ft carry, loading dock must be reserved)\n- Packing: none\n- Coverage wanted: full-value protection\n- Access notes: Elevator at the Charlotte building is small, the 3-seat sofa will not fit and has to go up the stairwell. Dock reservation needed before 8am.",
+          "atMs": 39915,
+          "tool": null
+        },
+        {
+          "index": 6,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Yeah, yeah — two bedroom, stairs. I've got another line going. What's the date again?",
+          "atMs": 44940,
+          "tool": null
+        },
+        {
+          "index": 7,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "2026-08-15, and there's a little flexibility on that. Picking up from Rock Hill and delivering in Charlotte, 45 miles.",
+          "atMs": 51450,
+          "tool": null
+        },
+        {
+          "index": 8,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "What would that run, and can you break it out by line so I can compare it fairly against the others?",
+          "atMs": 57150,
+          "tool": null
+        },
+        {
+          "index": 9,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Alright. For that job I'm at $2,604. That's base labor — 3-person crew x 8.08 hrs is $1,760, travel time — 0.99 hrs for 45 mi is $216, truck fee is $125, fuel surcharge — 45 mi is $68, elevator handling x1 is $79, special item — treadmill is $119, peak-date surcharge (8%) is $236.",
+          "atMs": 67350,
+          "tool": null
+        },
+        {
+          "index": 10,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Logging that — 7 line items, $2,604.",
+          "atMs": 70170,
+          "tool": "log_quote_line_item"
+        },
+        {
+          "index": 11,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "One thing I ask everybody, and it's the whole reason I'm calling instead of using a website: is there anything that could be added on moving day that isn't in that number?",
+          "atMs": 79065,
+          "tool": null
+        },
+        {
+          "index": 12,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Fair question. stairs — 2 flights is $198, long carry — 130 ft total is $145, full-value protection is $244. That'd be on top.",
+          "atMs": 85935,
+          "tool": null
+        },
+        {
+          "index": 13,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Understood — logging those too.",
+          "atMs": 88530,
+          "tool": "log_quote_line_item"
+        },
+        {
+          "index": 14,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Is that a binding estimate, or can it move on the day?",
+          "atMs": 92160,
+          "tool": null
+        },
+        {
+          "index": 15,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "That's binding. What I quote is what you pay, assuming the inventory matches what you told me.",
+          "atMs": 97590,
+          "tool": null
+        },
+        {
+          "index": 16,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "What's your USDOT or state licence number?",
+          "atMs": 100680,
+          "tool": null
+        },
+        {
+          "index": 17,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "USDOT 2287441. Look us up.",
+          "atMs": 103050,
+          "tool": null
+        },
+        {
+          "index": 18,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "And coverage — what's included, and what does full-value protection cost?",
+          "atMs": 107535,
+          "tool": null
+        },
+        {
+          "index": 19,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Standard is released value, sixty cents a pound, but full-value is in the number I quoted you.",
+          "atMs": 112965,
+          "tool": null
+        },
+        {
+          "index": 20,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Deposit and cancellation terms?",
+          "atMs": 115560,
+          "tool": null
+        },
+        {
+          "index": 21,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "$319 to hold the date — that's 10%. Refundable up to 72 hours out.",
+          "atMs": 119730,
+          "tool": null
+        },
+        {
+          "index": 22,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "That puts you at $3,191 all in. I'm getting the same itemisation from a few other companies and I'll come back to you today.",
+          "atMs": 126510,
+          "tool": null
+        },
+        {
+          "index": 23,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Do what you need to do. That's my number.",
+          "atMs": 129555,
+          "tool": null
+        },
+        {
+          "index": 24,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Ending with a structured quote outcome: $3,191.",
+          "atMs": 132870,
+          "tool": "end_call_with_outcome"
+        }
+      ],
+      "recordingUrl": "/api/recordings/sim-tough-demo",
+      "redFlags": [
+        {
+          "id": "fees_withheld",
+          "severity": "medium",
+          "label": "Add-on fees only disclosed when pushed",
+          "explain": "Fees that only appear when you ask are the mechanism behind the 30%+ inflated final bill.",
+          "citation": null,
+          "evidenceTurns": [
+            12,
+            12,
+            12
+          ]
+        }
+      ],
+      "citations": [],
+      "concession": null,
+      "errors": []
+    },
+    {
+      "id": "call_sim-lowball-demo",
+      "jobId": "job_daniel_rockhill",
+      "specVersion": 1,
+      "specFingerprint": "2e1c1342",
+      "role": "caller",
+      "counterpartyId": "lowball",
+      "company": "Queen City Value Movers",
+      "style": "Lowballer",
+      "phone": "+1-704-555-0178",
+      "conversationId": "sim-lowball-demo",
+      "provider": "simulation",
+      "status": "completed",
+      "startedAt": "2026-07-19T08:13:46.885Z",
+      "endedAt": "2026-07-19T08:15:59.185Z",
+      "durationMs": 132300,
+      "outcome": "quote",
+      "quote": {
+        "binding": false,
+        "lineItems": [
+          {
+            "code": "base",
+            "label": "Base labor — 3-person crew x 8.08 hrs",
+            "amount": 813.25,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 4
+          },
+          {
+            "code": "elevator",
+            "label": "Elevator handling x1",
+            "amount": 36.6,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 4
+          },
+          {
+            "code": "specialItem",
+            "label": "Special item — treadmill",
+            "amount": 54.9,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 4
+          },
+          {
+            "code": "valuation",
+            "label": "Full-value protection",
+            "amount": 112.85,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 4
+          },
+          {
+            "code": "surcharge",
+            "label": "Peak-date surcharge (8%)",
+            "amount": 109.23,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 4
+          },
+          {
+            "code": "travel",
+            "label": "Travel time — 0.99 hrs for 45 mi",
+            "amount": 99.64,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 11
+          },
+          {
+            "code": "truck",
+            "label": "Truck fee",
+            "amount": 57.95,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 11
+          },
+          {
+            "code": "fuel",
+            "label": "Fuel surcharge — 45 mi",
+            "amount": 31.57,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 11
+          },
+          {
+            "code": "stairs",
+            "label": "Stairs — 2 flights",
+            "amount": 91.5,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 11
+          },
+          {
+            "code": "longCarry",
+            "label": "Long carry — 130 ft total",
+            "amount": 67.1,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 11
+          },
+          {
+            "code": "minimum",
+            "label": "4-hour billed minimum (applies regardless of actual time)",
+            "amount": 0,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 11
+          }
+        ],
+        "total": 1474.59,
+        "openingTotal": 1126.83,
+        "currency": "USD",
+        "usdotNumber": null,
+        "valuationOffered": "released",
+        "depositAmount": 368.65,
+        "terms": [
+          "non-binding estimate",
+          "25% deposit at booking"
+        ]
+      },
+      "callback": null,
+      "decline": null,
+      "transcript": [
+        {
+          "index": 0,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "Queen City Value Movers, this is dispatch.",
+          "atMs": 3090,
+          "tool": null
+        },
+        {
+          "index": 1,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Hi, I should say upfront — I'm an AI assistant calling on behalf of a customer, Daniel Reyes, who is getting quotes for a move. Is it alright if I run through the details with you?",
+          "atMs": 12390,
+          "tool": null
+        },
+        {
+          "index": 2,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Here's the job, and I'll give you the same detail I'm giving everyone:\n- Route: 1420 Cherry Rd, Apt 3B, Rock Hill SC 29732 -> 812 Central Ave, Unit 5, Charlotte NC 28204 (45 miles)\n- Date: 2026-08-15 (customer has some flexibility)\n- Size: 2-bedroom\n- Large items: 1x Queen bed frame and mattress (disassembly required), 2x Nightstand, 1x Full bed frame and mattress, 1x Nightstand, 1x Treadmill (heavy, does not fold), 2x Armchair, 1x TV console, 3x Bookshelf (must be emptied), 1x Dining table (legs come off), 4x Dining chair, 1x Desk, 1x Office chair, 1x Filing cabinet, 1x Washer (needs disconnecting), 1x Dryer (needs disconnecting), 1x Refrigerator (customer owns it), 2x Bicycle, 34x Medium boxes (customer packed), 4x Wardrobe boxes\n- Special items: treadmill — Treadmill (heavy, does not fold)\n- Pickup access: floor 3, 2 flight(s) of stairs, 90 ft carry from truck\n- Delivery access: floor 2, elevator available, 40 ft carry from truck (floor 2, elevator available, 40 ft carry, loading dock must be reserved)\n- Packing: none\n- Coverage wanted: full-value protection\n- Access notes: Elevator at the Charlotte building is small, the 3-seat sofa will not fit and has to go up the stairwell. Dock reservation needed before 8am.",
+          "atMs": 22590,
+          "tool": null
+        },
+        {
+          "index": 3,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "What would that run, and can you break it out by line so I can compare it fairly against the others?",
+          "atMs": 28290,
+          "tool": null
+        },
+        {
+          "index": 4,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "Oh, for a 2-bedroom that distance? We can do that for $1,127. That's our standard rate — covers the guys and the truck.",
+          "atMs": 34845,
+          "tool": null
+        },
+        {
+          "index": 5,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "$1,127 — got it, logging that.",
+          "atMs": 37395,
+          "tool": "log_quote_line_item"
+        },
+        {
+          "index": 6,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Is that everything? What's the itemisation behind that number?",
+          "atMs": 41385,
+          "tool": null
+        },
+        {
+          "index": 7,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "That's the rate. Honestly it's all in there, we're the cheapest in Charlotte.",
+          "atMs": 46050,
+          "tool": null
+        },
+        {
+          "index": 8,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "One thing I ask everybody, and it's the whole reason I'm calling instead of using a website: is there anything that could be added on moving day that isn't in that number?",
+          "atMs": 54945,
+          "tool": null
+        },
+        {
+          "index": 9,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "Nah, you're good. Standard job.",
+          "atMs": 57540,
+          "tool": null
+        },
+        {
+          "index": 10,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "I appreciate that — but I've got stairs at both ends and a 90-foot carry at pickup. If your crew shows up and bills those, I'd rather know now than argue about it on the day. Do those carry a charge?",
+          "atMs": 67695,
+          "tool": null
+        },
+        {
+          "index": 11,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "...I mean, technically yeah. travel time — 0.99 hrs for 45 mi is $100, truck fee is $58, fuel surcharge — 45 mi is $32, stairs — 2 flights is $92, long carry — 130 ft total is $67, there's a four-hour minimum on the crew either way. But everybody charges that.",
+          "atMs": 77895,
+          "tool": null
+        },
+        {
+          "index": 12,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "That's a real difference from the number you opened with — logging all of it.",
+          "atMs": 82560,
+          "tool": "log_quote_line_item"
+        },
+        {
+          "index": 13,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Flagging that those only came up after I pushed.",
+          "atMs": 85920,
+          "tool": "flag_red_flag"
+        },
+        {
+          "index": 14,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Is that a binding estimate, or can it move on the day?",
+          "atMs": 89550,
+          "tool": null
+        },
+        {
+          "index": 15,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "It's an estimate. Final's based on actual time and what's on the truck — could go up, could go down.",
+          "atMs": 95250,
+          "tool": null
+        },
+        {
+          "index": 16,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "What's your USDOT or state licence number?",
+          "atMs": 98340,
+          "tool": null
+        },
+        {
+          "index": 17,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "We're licensed, don't worry about it. I'd have to dig that out.",
+          "atMs": 102375,
+          "tool": null
+        },
+        {
+          "index": 18,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "And coverage — what's included, and what does full-value protection cost?",
+          "atMs": 106860,
+          "tool": null
+        },
+        {
+          "index": 19,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "Sixty cents a pound is what's included. That's standard across the industry.",
+          "atMs": 111480,
+          "tool": null
+        },
+        {
+          "index": 20,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Deposit and cancellation terms?",
+          "atMs": 114075,
+          "tool": null
+        },
+        {
+          "index": 21,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "$369 to hold the date — that's 25%. That one's non-refundable.",
+          "atMs": 118065,
+          "tool": null
+        },
+        {
+          "index": 22,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "That puts you at $1,475 all in. I'm getting the same itemisation from a few other companies and I'll come back to you today.",
+          "atMs": 124845,
+          "tool": null
+        },
+        {
+          "index": 23,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "Sounds good. We'd love the work.",
+          "atMs": 127485,
+          "tool": null
+        },
+        {
+          "index": 24,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Ending with a structured quote outcome: $1,475.",
+          "atMs": 130800,
+          "tool": "end_call_with_outcome"
+        }
+      ],
+      "recordingUrl": "/api/recordings/sim-lowball-demo",
+      "redFlags": [
+        {
+          "id": "below_market_30",
+          "severity": "high",
+          "label": "More than 30% below fair-market benchmark",
+          "explain": "A quote this far below the benchmark is a warning sign, not a win. It usually means fees are being withheld until moving day.",
+          "citation": "FMCSA: sight-unseen and underpriced estimates are 40% more likely to change on moving day.",
+          "evidenceTurns": []
+        },
+        {
+          "id": "non_binding",
+          "severity": "high",
+          "label": "Non-binding estimate",
+          "explain": "A non-binding estimate can legally rise on moving day. Binding or not-to-exceed is the protection you want.",
+          "citation": "BBB logs 13,000+ mover complaints a year, largely unexpected price hikes.",
+          "evidenceTurns": []
+        },
+        {
+          "id": "fees_withheld",
+          "severity": "medium",
+          "label": "Add-on fees only disclosed when pushed",
+          "explain": "Fees that only appear when you ask are the mechanism behind the 30%+ inflated final bill.",
+          "citation": null,
+          "evidenceTurns": [
+            11,
+            11,
+            11,
+            11,
+            11,
+            11
+          ]
+        },
+        {
+          "id": "large_deposit",
+          "severity": "medium",
+          "label": "Deposit above 20% of total",
+          "explain": "Large upfront deposits are associated with hostage-load disputes, which have nearly tripled since 2017.",
+          "citation": null,
+          "evidenceTurns": []
+        },
+        {
+          "id": "no_usdot",
+          "severity": "medium",
+          "label": "No USDOT / state license number given",
+          "explain": "Licensed interstate and intrastate movers can produce a USDOT or state number on request.",
+          "citation": null,
+          "evidenceTurns": []
+        },
+        {
+          "id": "released_valuation_only",
+          "severity": "low",
+          "label": "Released-value coverage only ($0.60/lb)",
+          "explain": "$0.60 per pound means a 50 lb TV is covered for $30. Ask what full-value protection costs.",
+          "citation": null,
+          "evidenceTurns": []
+        }
+      ],
+      "citations": [],
+      "concession": null,
+      "errors": []
+    },
+    {
+      "id": "call_sim-upsell-demo",
+      "jobId": "job_daniel_rockhill",
+      "specVersion": 1,
+      "specFingerprint": "2e1c1342",
+      "role": "caller",
+      "counterpartyId": "upsell",
+      "company": "Carolina Premier Relocation",
+      "style": "Upseller",
+      "phone": "+1-704-555-0193",
+      "conversationId": "sim-upsell-demo",
+      "provider": "simulation",
+      "status": "completed",
+      "startedAt": "2026-07-19T08:13:46.886Z",
+      "endedAt": "2026-07-19T08:16:06.101Z",
+      "durationMs": 139215,
+      "outcome": "quote",
+      "quote": {
+        "binding": true,
+        "lineItems": [
+          {
+            "code": "base",
+            "label": "Base labor — 3-person crew x 8.08 hrs",
+            "amount": 1519.85,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "travel",
+            "label": "Travel time — 0.99 hrs for 45 mi",
+            "amount": 186.22,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "truck",
+            "label": "Truck fee",
+            "amount": 108.3,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "fuel",
+            "label": "Fuel surcharge — 45 mi",
+            "amount": 59,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "elevator",
+            "label": "Elevator handling x1",
+            "amount": 68.4,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "longCarry",
+            "label": "Long carry — 130 ft total",
+            "amount": 125.4,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "specialItem",
+            "label": "Special item — treadmill",
+            "amount": 102.6,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "surcharge",
+            "label": "Peak-date surcharge (8%)",
+            "amount": 204.13,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "materials",
+            "label": "Box & materials package",
+            "amount": 273.6,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "packing",
+            "label": "Recommended partial packing service",
+            "amount": 364.8,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "stairs",
+            "label": "Stairs — 2 flights",
+            "amount": 171,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 10
+          },
+          {
+            "code": "valuation",
+            "label": "Full-value protection",
+            "amount": 210.9,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 10
+          }
+        ],
+        "total": 3394.2,
+        "openingTotal": 3012.3,
+        "currency": "USD",
+        "usdotNumber": "USDOT 3115902",
+        "valuationOffered": "fullValue",
+        "depositAmount": 509.13,
+        "terms": [
+          "binding estimate",
+          "15% deposit at booking"
+        ]
+      },
+      "callback": null,
+      "decline": null,
+      "transcript": [
+        {
+          "index": 0,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Carolina Premier Relocation, this is dispatch.",
+          "atMs": 3270,
+          "tool": null
+        },
+        {
+          "index": 1,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Hi, I should say upfront — I'm an AI assistant calling on behalf of a customer, Daniel Reyes, who is getting quotes for a move. Is it alright if I run through the details with you?",
+          "atMs": 12570,
+          "tool": null
+        },
+        {
+          "index": 2,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Hold on — am I talking to a real person, or is this one of those robocalls?",
+          "atMs": 17145,
+          "tool": null
+        },
+        {
+          "index": 3,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Yes, I am — I'm an AI assistant, and Daniel Reyes is a real customer with a real move on 2026-08-15. I have the full inventory in front of me and I can book today if the number works.",
+          "atMs": 26580,
+          "tool": null
+        },
+        {
+          "index": 4,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Huh. Alright, at least you said so. Go ahead.",
+          "atMs": 29805,
+          "tool": null
+        },
+        {
+          "index": 5,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Here's the job, and I'll give you the same detail I'm giving everyone:\n- Route: 1420 Cherry Rd, Apt 3B, Rock Hill SC 29732 -> 812 Central Ave, Unit 5, Charlotte NC 28204 (45 miles)\n- Date: 2026-08-15 (customer has some flexibility)\n- Size: 2-bedroom\n- Large items: 1x Queen bed frame and mattress (disassembly required), 2x Nightstand, 1x Full bed frame and mattress, 1x Nightstand, 1x Treadmill (heavy, does not fold), 2x Armchair, 1x TV console, 3x Bookshelf (must be emptied), 1x Dining table (legs come off), 4x Dining chair, 1x Desk, 1x Office chair, 1x Filing cabinet, 1x Washer (needs disconnecting), 1x Dryer (needs disconnecting), 1x Refrigerator (customer owns it), 2x Bicycle, 34x Medium boxes (customer packed), 4x Wardrobe boxes\n- Special items: treadmill — Treadmill (heavy, does not fold)\n- Pickup access: floor 3, 2 flight(s) of stairs, 90 ft carry from truck\n- Delivery access: floor 2, elevator available, 40 ft carry from truck (floor 2, elevator available, 40 ft carry, loading dock must be reserved)\n- Packing: none\n- Coverage wanted: full-value protection\n- Access notes: Elevator at the Charlotte building is small, the 3-seat sofa will not fit and has to go up the stairwell. Dock reservation needed before 8am.",
+          "atMs": 40005,
+          "tool": null
+        },
+        {
+          "index": 6,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "What would that run, and can you break it out by line so I can compare it fairly against the others?",
+          "atMs": 45705,
+          "tool": null
+        },
+        {
+          "index": 7,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Alright. For that job I'm at $3,012. That's base labor — 3-person crew x 8.08 hrs is $1,520, travel time — 0.99 hrs for 45 mi is $186, truck fee is $108, fuel surcharge — 45 mi is $59, elevator handling x1 is $68, long carry — 130 ft total is $125, special item — treadmill is $103, peak-date surcharge (8%) is $204, box & materials package is $274, recommended partial packing service is $365.",
+          "atMs": 55905,
+          "tool": null
+        },
+        {
+          "index": 8,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Logging that — 10 line items, $3,012.",
+          "atMs": 58770,
+          "tool": "log_quote_line_item"
+        },
+        {
+          "index": 9,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "One thing I ask everybody, and it's the whole reason I'm calling instead of using a website: is there anything that could be added on moving day that isn't in that number?",
+          "atMs": 67665,
+          "tool": null
+        },
+        {
+          "index": 10,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Fair question. stairs — 2 flights is $171, full-value protection is $211. That'd be on top.",
+          "atMs": 72960,
+          "tool": null
+        },
+        {
+          "index": 11,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Understood — logging those too.",
+          "atMs": 75555,
+          "tool": "log_quote_line_item"
+        },
+        {
+          "index": 12,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Now, I'd really recommend our packing package — the materials alone are worth it, and honestly most people underestimate the kitchen.",
+          "atMs": 82740,
+          "tool": null
+        },
+        {
+          "index": 13,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Daniel Reyes is packing everything personally, so I'll keep that out of the comparison — but tell me the price so it's on the record.",
+          "atMs": 89925,
+          "tool": null
+        },
+        {
+          "index": 14,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "It's in the number I gave you. I'd hate for you to skip it.",
+          "atMs": 93780,
+          "tool": null
+        },
+        {
+          "index": 15,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Is that a binding estimate, or can it move on the day?",
+          "atMs": 97410,
+          "tool": null
+        },
+        {
+          "index": 16,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "That's binding. What I quote is what you pay, assuming the inventory matches what you told me.",
+          "atMs": 102840,
+          "tool": null
+        },
+        {
+          "index": 17,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "What's your USDOT or state licence number?",
+          "atMs": 105930,
+          "tool": null
+        },
+        {
+          "index": 18,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "USDOT 3115902. Look us up.",
+          "atMs": 108300,
+          "tool": null
+        },
+        {
+          "index": 19,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "And coverage — what's included, and what does full-value protection cost?",
+          "atMs": 112785,
+          "tool": null
+        },
+        {
+          "index": 20,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Standard is released value, sixty cents a pound, but full-value is in the number I quoted you.",
+          "atMs": 118215,
+          "tool": null
+        },
+        {
+          "index": 21,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Deposit and cancellation terms?",
+          "atMs": 120810,
+          "tool": null
+        },
+        {
+          "index": 22,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "$509 to hold the date — that's 15%. Refundable up to 72 hours out.",
+          "atMs": 124980,
+          "tool": null
+        },
+        {
+          "index": 23,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "That puts you at $3,394 all in. I'm getting the same itemisation from a few other companies and I'll come back to you today.",
+          "atMs": 131760,
+          "tool": null
+        },
+        {
+          "index": 24,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Sounds good. We'd love the work.",
+          "atMs": 134400,
+          "tool": null
+        },
+        {
+          "index": 25,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Ending with a structured quote outcome: $3,394.",
+          "atMs": 137715,
+          "tool": "end_call_with_outcome"
+        }
+      ],
+      "recordingUrl": "/api/recordings/sim-upsell-demo",
+      "redFlags": [
+        {
+          "id": "fees_withheld",
+          "severity": "medium",
+          "label": "Add-on fees only disclosed when pushed",
+          "explain": "Fees that only appear when you ask are the mechanism behind the 30%+ inflated final bill.",
+          "citation": null,
+          "evidenceTurns": [
+            10,
+            10
+          ]
+        }
+      ],
+      "citations": [],
+      "concession": null,
+      "errors": []
+    },
+    {
+      "id": "call_sim-stonewall-demo",
+      "jobId": "job_daniel_rockhill",
+      "specVersion": 1,
+      "specFingerprint": "2e1c1342",
+      "role": "caller",
+      "counterpartyId": "stonewall",
+      "company": "Piedmont Family Movers",
+      "style": "Stonewaller",
+      "phone": "+1-704-555-0116",
+      "conversationId": "sim-stonewall-demo",
+      "provider": "simulation",
+      "status": "completed",
+      "startedAt": "2026-07-19T08:13:46.889Z",
+      "endedAt": "2026-07-19T08:14:57.224Z",
+      "durationMs": 70335,
+      "outcome": "callback",
+      "quote": null,
+      "callback": {
+        "promisedBy": "Rachel, Piedmont Family Movers",
+        "contact": "+1-803-555-0177",
+        "note": "Walkthrough Thursday AM, written estimate same afternoon. No phone quote given."
+      },
+      "decline": null,
+      "transcript": [
+        {
+          "index": 0,
+          "role": "counterparty",
+          "speaker": "Piedmont Family Movers",
+          "text": "Piedmont Family Movers, this is dispatch.",
+          "atMs": 3045,
+          "tool": null
+        },
+        {
+          "index": 1,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Hi, I should say upfront — I'm an AI assistant calling on behalf of a customer, Daniel Reyes, who is getting quotes for a move. Is it alright if I run through the details with you?",
+          "atMs": 12345,
+          "tool": null
+        },
+        {
+          "index": 2,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Here's the job, and I'll give you the same detail I'm giving everyone:\n- Route: 1420 Cherry Rd, Apt 3B, Rock Hill SC 29732 -> 812 Central Ave, Unit 5, Charlotte NC 28204 (45 miles)\n- Date: 2026-08-15 (customer has some flexibility)\n- Size: 2-bedroom\n- Large items: 1x Queen bed frame and mattress (disassembly required), 2x Nightstand, 1x Full bed frame and mattress, 1x Nightstand, 1x Treadmill (heavy, does not fold), 2x Armchair, 1x TV console, 3x Bookshelf (must be emptied), 1x Dining table (legs come off), 4x Dining chair, 1x Desk, 1x Office chair, 1x Filing cabinet, 1x Washer (needs disconnecting), 1x Dryer (needs disconnecting), 1x Refrigerator (customer owns it), 2x Bicycle, 34x Medium boxes (customer packed), 4x Wardrobe boxes\n- Special items: treadmill — Treadmill (heavy, does not fold)\n- Pickup access: floor 3, 2 flight(s) of stairs, 90 ft carry from truck\n- Delivery access: floor 2, elevator available, 40 ft carry from truck (floor 2, elevator available, 40 ft carry, loading dock must be reserved)\n- Packing: none\n- Coverage wanted: full-value protection\n- Access notes: Elevator at the Charlotte building is small, the 3-seat sofa will not fit and has to go up the stairwell. Dock reservation needed before 8am.",
+          "atMs": 22545,
+          "tool": null
+        },
+        {
+          "index": 3,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "What would a job like that run?",
+          "atMs": 25140,
+          "tool": null
+        },
+        {
+          "index": 4,
+          "role": "counterparty",
+          "speaker": "Piedmont Family Movers",
+          "text": "We don't give prices over the phone — we do a walkthrough first, that's just our policy.",
+          "atMs": 30300,
+          "tool": null
+        },
+        {
+          "index": 5,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "That's completely fair, and I'd rather you see it than guess. Before I let you go — for a job this size on that date, is there a typical range you'd expect? I'll treat it as a range, not a quote.",
+          "atMs": 40275,
+          "tool": null
+        },
+        {
+          "index": 6,
+          "role": "counterparty",
+          "speaker": "Piedmont Family Movers",
+          "text": "I really can't put a number on it without seeing the place. I'd be doing you a disservice.",
+          "atMs": 45525,
+          "tool": null
+        },
+        {
+          "index": 7,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Understood, I'll leave it there. Can we book the walkthrough, and can I get a name and a time you'll come back to us with the estimate?",
+          "atMs": 52800,
+          "tool": null
+        },
+        {
+          "index": 8,
+          "role": "counterparty",
+          "speaker": "Piedmont Family Movers",
+          "text": "Sure — I'm Rachel, I can get someone out Thursday morning and you'd have a written estimate the same afternoon. What's the best number for Daniel Reyes?",
+          "atMs": 60840,
+          "tool": null
+        },
+        {
+          "index": 9,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "+1-803-555-0177. Thanks Rachel — I'm recording this as a callback commitment, not a quote, so it doesn't get compared against numbers we actually have.",
+          "atMs": 68835,
+          "tool": "end_call_with_outcome"
+        }
+      ],
+      "recordingUrl": "/api/recordings/sim-stonewall-demo",
+      "redFlags": [],
+      "citations": [],
+      "concession": null,
+      "errors": []
+    },
+    {
+      "id": "call_sim-upsell-close-demo",
+      "jobId": "job_daniel_rockhill",
+      "specVersion": 1,
+      "specFingerprint": "2e1c1342",
+      "role": "closer",
+      "counterpartyId": "upsell",
+      "company": "Carolina Premier Relocation",
+      "style": "Upseller",
+      "phone": "+1-704-555-0193",
+      "conversationId": "sim-upsell-close-demo",
+      "provider": "simulation",
+      "status": "completed",
+      "startedAt": "2026-07-19T08:13:46.959Z",
+      "endedAt": "2026-07-19T08:15:29.499Z",
+      "durationMs": 102540,
+      "outcome": "quote",
+      "quote": {
+        "binding": true,
+        "lineItems": [
+          {
+            "code": "base",
+            "label": "Base labor — 3-person crew x 8.08 hrs",
+            "amount": 1519.85,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "travel",
+            "label": "Travel time — 0.99 hrs for 45 mi",
+            "amount": 186.22,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "truck",
+            "label": "Truck fee",
+            "amount": 108.3,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "fuel",
+            "label": "Fuel surcharge — 45 mi",
+            "amount": 59,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "elevator",
+            "label": "Elevator handling x1",
+            "amount": 68.4,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "longCarry",
+            "label": "Long carry — 130 ft total",
+            "amount": 125.4,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "specialItem",
+            "label": "Special item — treadmill",
+            "amount": 102.6,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "surcharge",
+            "label": "Peak-date surcharge (8%)",
+            "amount": 204.13,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "materials",
+            "label": "Box & materials package",
+            "amount": 273.6,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "packing",
+            "label": "Recommended partial packing service",
+            "amount": 364.8,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "stairs",
+            "label": "Stairs — 2 flights",
+            "amount": 171,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 10
+          },
+          {
+            "code": "valuation",
+            "label": "Full-value protection",
+            "amount": 210.9,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 10
+          },
+          {
+            "code": "discount",
+            "label": "Negotiated reduction (competing quote: Ironclad Moving & Storage)",
+            "amount": -203.29,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          }
+        ],
+        "total": 3190.91,
+        "openingTotal": 3394.2,
+        "currency": "USD",
+        "usdotNumber": "USDOT 3115902",
+        "valuationOffered": "fullValue",
+        "depositAmount": 478.64,
+        "terms": [
+          "Waive weekend / peak-date surcharge",
+          "Get packing or materials included",
+          "Full-value protection included"
+        ]
+      },
+      "callback": null,
+      "decline": null,
+      "transcript": [
+        {
+          "index": 0,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Carolina Premier Relocation.",
+          "atMs": 2460,
+          "tool": null
+        },
+        {
+          "index": 1,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Hi — it's the AI assistant calling back for Daniel Reyes, the 2-bedroom Rock Hill to Charlotte move on 2026-08-15. You quoted me $3,394.",
+          "atMs": 9780,
+          "tool": null
+        },
+        {
+          "index": 2,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "I remember. Has something changed?",
+          "atMs": 12510,
+          "tool": null
+        },
+        {
+          "index": 3,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Nothing on the job — same inventory, same stairs, same date. I've finished the other calls and I want to give you the chance to have it.",
+          "atMs": 19830,
+          "tool": null
+        },
+        {
+          "index": 4,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Pulling the competing quotes on file before I quote you anyone's number.",
+          "atMs": 24270,
+          "tool": "get_competing_quotes"
+        },
+        {
+          "index": 5,
+          "role": "system",
+          "speaker": "system",
+          "text": "get_competing_quotes returned 1 verified quote (conversation sim-tough-demo).",
+          "atMs": 28935,
+          "tool": null
+        },
+        {
+          "index": 6,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "I have an itemised quote from Ironclad Moving & Storage at $3,191 for this exact specification, and they confirmed it's binding. Can you match or beat it?",
+          "atMs": 37065,
+          "tool": null
+        },
+        {
+          "index": 7,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Everybody tells me somebody's cheaper. Is that itemised, or is it a number off a website?",
+          "atMs": 42270,
+          "tool": null
+        },
+        {
+          "index": 8,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Itemised. Ironclad Moving & Storage, line by line — labor, travel, truck, fuel, stairs at both ends. I can read you the breakdown if you want it.",
+          "atMs": 49995,
+          "tool": null
+        },
+        {
+          "index": 9,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "...Alright. Against a real itemised number I can go to $3,191. That's me giving up $203 of margin and I'm not going lower — below that I'm paying my crew out of pocket.",
+          "atMs": 58755,
+          "tool": null
+        },
+        {
+          "index": 10,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Logging the revised total — $3,191, down $203.",
+          "atMs": 62025,
+          "tool": "log_quote_line_item"
+        },
+        {
+          "index": 11,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Can you take the weekend surcharge off if I keep the date?",
+          "atMs": 65835,
+          "tool": null
+        },
+        {
+          "index": 12,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "I can take the weekend surcharge off if you keep the date. That's real money, don't ask me for both.",
+          "atMs": 71535,
+          "tool": null
+        },
+        {
+          "index": 13,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "If I stay at your price, will you include the packing materials?",
+          "atMs": 75615,
+          "tool": null
+        },
+        {
+          "index": 14,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "I'll throw the materials in — boxes, wrap, tape. That's on us.",
+          "atMs": 79605,
+          "tool": null
+        },
+        {
+          "index": 15,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Include full-value protection at that price and I will book today.",
+          "atMs": 83775,
+          "tool": null
+        },
+        {
+          "index": 16,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "I'll include full-value protection at that price rather than the sixty-cents-a-pound.",
+          "atMs": 88800,
+          "tool": null
+        },
+        {
+          "index": 17,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "So that's $3,191, plus 3 terms in writing. I'll put that in front of Daniel Reyes and come back to you today.",
+          "atMs": 94905,
+          "tool": null
+        },
+        {
+          "index": 18,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "I'll hold the date until end of day.",
+          "atMs": 97725,
+          "tool": null
+        },
+        {
+          "index": 19,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Ending with a revised structured quote: $3,191.",
+          "atMs": 101040,
+          "tool": "end_call_with_outcome"
+        }
+      ],
+      "recordingUrl": "/api/recordings/sim-upsell-close-demo",
+      "redFlags": [
+        {
+          "id": "fees_withheld",
+          "severity": "medium",
+          "label": "Add-on fees only disclosed when pushed",
+          "explain": "Fees that only appear when you ask are the mechanism behind the 30%+ inflated final bill.",
+          "citation": null,
+          "evidenceTurns": [
+            10,
+            10
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "quoteRecordId": "call_sim-tough-demo",
+          "conversationId": "sim-tough-demo",
+          "company": "Ironclad Moving & Storage",
+          "total": 3190.91,
+          "turnIndex": 6
+        }
+      ],
+      "concession": {
+        "priceBefore": 3394.2,
+        "priceAfter": 3190.91,
+        "delta": 203.29,
+        "deltaPct": 0.06,
+        "termsWon": [
+          "Waive weekend / peak-date surcharge",
+          "Get packing or materials included",
+          "Full-value protection included"
+        ],
+        "causedBy": [
+          {
+            "quoteRecordId": "call_sim-tough-demo",
+            "conversationId": "sim-tough-demo",
+            "company": "Ironclad Moving & Storage",
+            "total": 3190.91,
+            "turnIndex": 6
+          }
+        ],
+        "counterpartyTurn": 9
+      },
+      "errors": []
+    },
+    {
+      "id": "call_sim-tough-1",
+      "jobId": "job_daniel_rockhill",
+      "specVersion": 1,
+      "specFingerprint": "9d380f52",
+      "role": "caller",
+      "counterpartyId": "tough",
+      "company": "Ironclad Moving & Storage",
+      "style": "ToughNegotiator",
+      "phone": "+1-704-555-0142",
+      "conversationId": "sim-tough-1",
+      "provider": "simulation",
+      "status": "completed",
+      "startedAt": "2026-07-19T09:57:15.527Z",
+      "endedAt": "2026-07-19T09:59:29.897Z",
+      "durationMs": 134370,
+      "outcome": "quote",
+      "quote": {
+        "binding": true,
+        "lineItems": [
+          {
+            "code": "base",
+            "label": "Base labor — 3-person crew x 8.32 hrs",
+            "amount": 1812.1,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          },
+          {
+            "code": "travel",
+            "label": "Travel time — 0.99 hrs for 45 mi",
+            "amount": 215.62,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          },
+          {
+            "code": "truck",
+            "label": "Truck fee",
+            "amount": 125.4,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          },
+          {
+            "code": "fuel",
+            "label": "Fuel surcharge — 45 mi",
+            "amount": 68.31,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          },
+          {
+            "code": "elevator",
+            "label": "Elevator handling x1",
+            "amount": 79.2,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          },
+          {
+            "code": "specialItem",
+            "label": "Special item — treadmill",
+            "amount": 118.8,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          },
+          {
+            "code": "surcharge",
+            "label": "Peak-date surcharge (8%)",
+            "amount": 240.54,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          },
+          {
+            "code": "stairs",
+            "label": "Stairs — 2 flights",
+            "amount": 198,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 12
+          },
+          {
+            "code": "longCarry",
+            "label": "Long carry — 130 ft total",
+            "amount": 145.2,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 12
+          },
+          {
+            "code": "valuation",
+            "label": "Full-value protection",
+            "amount": 244.2,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 12
+          }
+        ],
+        "total": 3247.37,
+        "openingTotal": 2659.97,
+        "currency": "USD",
+        "usdotNumber": "USDOT 2287441",
+        "valuationOffered": "fullValue",
+        "depositAmount": 324.74,
+        "terms": [
+          "binding estimate",
+          "10% deposit at booking"
+        ]
+      },
+      "callback": null,
+      "decline": null,
+      "transcript": [
+        {
+          "index": 0,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Ironclad Moving & Storage, this is dispatch.",
+          "atMs": 3180,
+          "tool": null
+        },
+        {
+          "index": 1,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Hi, I should say upfront — I'm an AI assistant calling on behalf of a customer, Daniel Reyes, who is getting quotes for a move. Is it alright if I run through the details with you?",
+          "atMs": 12480,
+          "tool": null
+        },
+        {
+          "index": 2,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Hold on — am I talking to a real person, or is this one of those robocalls?",
+          "atMs": 17055,
+          "tool": null
+        },
+        {
+          "index": 3,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Yes, I am — I'm an AI assistant, and Daniel Reyes is a real customer with a real move on 2026-08-15. I have the full inventory in front of me and I can book today if the number works.",
+          "atMs": 26490,
+          "tool": null
+        },
+        {
+          "index": 4,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Huh. Alright, at least you said so. Go ahead.",
+          "atMs": 29715,
+          "tool": null
+        },
+        {
+          "index": 5,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Here's the job, and I'll give you the same detail I'm giving everyone:\n- Route: 1420 Cherry Rd, Apt 3B, Rock Hill SC 29732 -> 812 Central Ave, Unit 5, Charlotte NC 28204 (45 miles)\n- Date: 2026-08-15 (customer has some flexibility)\n- Size: 2-bedroom\n- Large items: 1x Queen bed frame and mattress (disassembly required), 1x Full bed frame and mattress, 2x 6-drawer dresser, 3x Nightstand, 1x 3-seat sofa (will not fit in elevator), 2x Armchair, 1x 65-inch TV (no original box), 1x TV console, 3x Bookshelf (must be emptied), 1x Dining table (legs come off), 4x Dining chair, 1x Desk, 1x Office chair, 1x Filing cabinet, 1x Washer (needs disconnecting), 1x Dryer (needs disconnecting), 1x Refrigerator (customer owns it), 34x Medium boxes (customer packed), 4x Wardrobe boxes, 2x Bicycle, 1x Treadmill (heavy, does not fold)\n- Special items: treadmill — NordicTrack, approx 300 lb, does not fold\n- Pickup access: floor 3, 2 flight(s) of stairs, 90 ft carry from truck (No loading zone; truck must park on Cherry Rd)\n- Delivery access: floor 2, elevator available, 40 ft carry from truck (Loading dock must be reserved with building management)\n- Packing: none\n- Coverage wanted: full-value protection\n- Access notes: Daniel is packing all boxes himself. Elevator at the Charlotte building is small — the 3-seat sofa will not fit and has to go up the stairwell. Dock reservation needed before 8am.",
+          "atMs": 39915,
+          "tool": null
+        },
+        {
+          "index": 6,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Yeah, yeah — two bedroom, stairs. I've got another line going. What's the date again?",
+          "atMs": 44940,
+          "tool": null
+        },
+        {
+          "index": 7,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "2026-08-15, and there's a little flexibility on that. Picking up from Rock Hill and delivering in Charlotte, 45 miles.",
+          "atMs": 51450,
+          "tool": null
+        },
+        {
+          "index": 8,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "What would that run, and can you break it out by line so I can compare it fairly against the others?",
+          "atMs": 57150,
+          "tool": null
+        },
+        {
+          "index": 9,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Alright. For that job I'm at $2,660. That's base labor — 3-person crew x 8.32 hrs is $1,812, travel time — 0.99 hrs for 45 mi is $216, truck fee is $125, fuel surcharge — 45 mi is $68, elevator handling x1 is $79, special item — treadmill is $119, peak-date surcharge (8%) is $241.",
+          "atMs": 67350,
+          "tool": null
+        },
+        {
+          "index": 10,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Logging that — 7 line items, $2,660.",
+          "atMs": 70170,
+          "tool": "log_quote_line_item"
+        },
+        {
+          "index": 11,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "One thing I ask everybody, and it's the whole reason I'm calling instead of using a website: is there anything that could be added on moving day that isn't in that number?",
+          "atMs": 79065,
+          "tool": null
+        },
+        {
+          "index": 12,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Fair question. stairs — 2 flights is $198, long carry — 130 ft total is $145, full-value protection is $244. That'd be on top.",
+          "atMs": 85935,
+          "tool": null
+        },
+        {
+          "index": 13,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Understood — logging those too.",
+          "atMs": 88530,
+          "tool": "log_quote_line_item"
+        },
+        {
+          "index": 14,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Is that a binding estimate, or can it move on the day?",
+          "atMs": 92160,
+          "tool": null
+        },
+        {
+          "index": 15,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "That's binding. What I quote is what you pay, assuming the inventory matches what you told me.",
+          "atMs": 97590,
+          "tool": null
+        },
+        {
+          "index": 16,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "What's your USDOT or state licence number?",
+          "atMs": 100680,
+          "tool": null
+        },
+        {
+          "index": 17,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "USDOT 2287441. Look us up.",
+          "atMs": 103050,
+          "tool": null
+        },
+        {
+          "index": 18,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "And coverage — what's included, and what does full-value protection cost?",
+          "atMs": 107535,
+          "tool": null
+        },
+        {
+          "index": 19,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Standard is released value, sixty cents a pound, but full-value is in the number I quoted you.",
+          "atMs": 112965,
+          "tool": null
+        },
+        {
+          "index": 20,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Deposit and cancellation terms?",
+          "atMs": 115560,
+          "tool": null
+        },
+        {
+          "index": 21,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "$325 to hold the date — that's 10%. Refundable up to 72 hours out.",
+          "atMs": 119730,
+          "tool": null
+        },
+        {
+          "index": 22,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "That puts you at $3,247 all in. I'm getting the same itemisation from a few other companies and I'll come back to you today.",
+          "atMs": 126510,
+          "tool": null
+        },
+        {
+          "index": 23,
+          "role": "counterparty",
+          "speaker": "Ironclad Moving & Storage",
+          "text": "Do what you need to do. That's my number.",
+          "atMs": 129555,
+          "tool": null
+        },
+        {
+          "index": 24,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Ending with a structured quote outcome: $3,247.",
+          "atMs": 132870,
+          "tool": "end_call_with_outcome"
+        }
+      ],
+      "recordingUrl": "/api/recordings/sim-tough-1",
+      "redFlags": [
+        {
+          "id": "fees_withheld",
+          "severity": "medium",
+          "label": "Add-on fees only disclosed when pushed",
+          "explain": "Fees that only appear when you ask are the mechanism behind the 30%+ inflated final bill.",
+          "citation": null,
+          "evidenceTurns": [
+            12,
+            12,
+            12
+          ]
+        }
+      ],
+      "citations": [],
+      "concession": null,
+      "errors": []
+    },
+    {
+      "id": "call_sim-lowball-1",
+      "jobId": "job_daniel_rockhill",
+      "specVersion": 1,
+      "specFingerprint": "9d380f52",
+      "role": "caller",
+      "counterpartyId": "lowball",
+      "company": "Queen City Value Movers",
+      "style": "Lowballer",
+      "phone": "+1-704-555-0178",
+      "conversationId": "sim-lowball-1",
+      "provider": "simulation",
+      "status": "completed",
+      "startedAt": "2026-07-19T09:57:15.533Z",
+      "endedAt": "2026-07-19T09:59:27.833Z",
+      "durationMs": 132300,
+      "outcome": "quote",
+      "quote": {
+        "binding": false,
+        "lineItems": [
+          {
+            "code": "base",
+            "label": "Base labor — 3-person crew x 8.32 hrs",
+            "amount": 837.41,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 4
+          },
+          {
+            "code": "elevator",
+            "label": "Elevator handling x1",
+            "amount": 36.6,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 4
+          },
+          {
+            "code": "specialItem",
+            "label": "Special item — treadmill",
+            "amount": 54.9,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 4
+          },
+          {
+            "code": "valuation",
+            "label": "Full-value protection",
+            "amount": 112.85,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 4
+          },
+          {
+            "code": "surcharge",
+            "label": "Peak-date surcharge (8%)",
+            "amount": 111.16,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 4
+          },
+          {
+            "code": "travel",
+            "label": "Travel time — 0.99 hrs for 45 mi",
+            "amount": 99.64,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 11
+          },
+          {
+            "code": "truck",
+            "label": "Truck fee",
+            "amount": 57.95,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 11
+          },
+          {
+            "code": "fuel",
+            "label": "Fuel surcharge — 45 mi",
+            "amount": 31.57,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 11
+          },
+          {
+            "code": "stairs",
+            "label": "Stairs — 2 flights",
+            "amount": 91.5,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 11
+          },
+          {
+            "code": "longCarry",
+            "label": "Long carry — 130 ft total",
+            "amount": 67.1,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 11
+          },
+          {
+            "code": "minimum",
+            "label": "4-hour billed minimum (applies regardless of actual time)",
+            "amount": 0,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 11
+          }
+        ],
+        "total": 1500.68,
+        "openingTotal": 1152.92,
+        "currency": "USD",
+        "usdotNumber": null,
+        "valuationOffered": "released",
+        "depositAmount": 375.17,
+        "terms": [
+          "non-binding estimate",
+          "25% deposit at booking"
+        ]
+      },
+      "callback": null,
+      "decline": null,
+      "transcript": [
+        {
+          "index": 0,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "Queen City Value Movers, this is dispatch.",
+          "atMs": 3090,
+          "tool": null
+        },
+        {
+          "index": 1,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Hi, I should say upfront — I'm an AI assistant calling on behalf of a customer, Daniel Reyes, who is getting quotes for a move. Is it alright if I run through the details with you?",
+          "atMs": 12390,
+          "tool": null
+        },
+        {
+          "index": 2,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Here's the job, and I'll give you the same detail I'm giving everyone:\n- Route: 1420 Cherry Rd, Apt 3B, Rock Hill SC 29732 -> 812 Central Ave, Unit 5, Charlotte NC 28204 (45 miles)\n- Date: 2026-08-15 (customer has some flexibility)\n- Size: 2-bedroom\n- Large items: 1x Queen bed frame and mattress (disassembly required), 1x Full bed frame and mattress, 2x 6-drawer dresser, 3x Nightstand, 1x 3-seat sofa (will not fit in elevator), 2x Armchair, 1x 65-inch TV (no original box), 1x TV console, 3x Bookshelf (must be emptied), 1x Dining table (legs come off), 4x Dining chair, 1x Desk, 1x Office chair, 1x Filing cabinet, 1x Washer (needs disconnecting), 1x Dryer (needs disconnecting), 1x Refrigerator (customer owns it), 34x Medium boxes (customer packed), 4x Wardrobe boxes, 2x Bicycle, 1x Treadmill (heavy, does not fold)\n- Special items: treadmill — NordicTrack, approx 300 lb, does not fold\n- Pickup access: floor 3, 2 flight(s) of stairs, 90 ft carry from truck (No loading zone; truck must park on Cherry Rd)\n- Delivery access: floor 2, elevator available, 40 ft carry from truck (Loading dock must be reserved with building management)\n- Packing: none\n- Coverage wanted: full-value protection\n- Access notes: Daniel is packing all boxes himself. Elevator at the Charlotte building is small — the 3-seat sofa will not fit and has to go up the stairwell. Dock reservation needed before 8am.",
+          "atMs": 22590,
+          "tool": null
+        },
+        {
+          "index": 3,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "What would that run, and can you break it out by line so I can compare it fairly against the others?",
+          "atMs": 28290,
+          "tool": null
+        },
+        {
+          "index": 4,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "Oh, for a 2-bedroom that distance? We can do that for $1,153. That's our standard rate — covers the guys and the truck.",
+          "atMs": 34845,
+          "tool": null
+        },
+        {
+          "index": 5,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "$1,153 — got it, logging that.",
+          "atMs": 37395,
+          "tool": "log_quote_line_item"
+        },
+        {
+          "index": 6,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Is that everything? What's the itemisation behind that number?",
+          "atMs": 41385,
+          "tool": null
+        },
+        {
+          "index": 7,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "That's the rate. Honestly it's all in there, we're the cheapest in Charlotte.",
+          "atMs": 46050,
+          "tool": null
+        },
+        {
+          "index": 8,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "One thing I ask everybody, and it's the whole reason I'm calling instead of using a website: is there anything that could be added on moving day that isn't in that number?",
+          "atMs": 54945,
+          "tool": null
+        },
+        {
+          "index": 9,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "Nah, you're good. Standard job.",
+          "atMs": 57540,
+          "tool": null
+        },
+        {
+          "index": 10,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "I appreciate that — but I've got stairs at both ends and a 90-foot carry at pickup. If your crew shows up and bills those, I'd rather know now than argue about it on the day. Do those carry a charge?",
+          "atMs": 67695,
+          "tool": null
+        },
+        {
+          "index": 11,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "...I mean, technically yeah. travel time — 0.99 hrs for 45 mi is $100, truck fee is $58, fuel surcharge — 45 mi is $32, stairs — 2 flights is $92, long carry — 130 ft total is $67, there's a four-hour minimum on the crew either way. But everybody charges that.",
+          "atMs": 77895,
+          "tool": null
+        },
+        {
+          "index": 12,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "That's a real difference from the number you opened with — logging all of it.",
+          "atMs": 82560,
+          "tool": "log_quote_line_item"
+        },
+        {
+          "index": 13,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Flagging that those only came up after I pushed.",
+          "atMs": 85920,
+          "tool": "flag_red_flag"
+        },
+        {
+          "index": 14,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Is that a binding estimate, or can it move on the day?",
+          "atMs": 89550,
+          "tool": null
+        },
+        {
+          "index": 15,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "It's an estimate. Final's based on actual time and what's on the truck — could go up, could go down.",
+          "atMs": 95250,
+          "tool": null
+        },
+        {
+          "index": 16,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "What's your USDOT or state licence number?",
+          "atMs": 98340,
+          "tool": null
+        },
+        {
+          "index": 17,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "We're licensed, don't worry about it. I'd have to dig that out.",
+          "atMs": 102375,
+          "tool": null
+        },
+        {
+          "index": 18,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "And coverage — what's included, and what does full-value protection cost?",
+          "atMs": 106860,
+          "tool": null
+        },
+        {
+          "index": 19,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "Sixty cents a pound is what's included. That's standard across the industry.",
+          "atMs": 111480,
+          "tool": null
+        },
+        {
+          "index": 20,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Deposit and cancellation terms?",
+          "atMs": 114075,
+          "tool": null
+        },
+        {
+          "index": 21,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "$375 to hold the date — that's 25%. That one's non-refundable.",
+          "atMs": 118065,
+          "tool": null
+        },
+        {
+          "index": 22,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "That puts you at $1,501 all in. I'm getting the same itemisation from a few other companies and I'll come back to you today.",
+          "atMs": 124845,
+          "tool": null
+        },
+        {
+          "index": 23,
+          "role": "counterparty",
+          "speaker": "Queen City Value Movers",
+          "text": "Sounds good. We'd love the work.",
+          "atMs": 127485,
+          "tool": null
+        },
+        {
+          "index": 24,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Ending with a structured quote outcome: $1,501.",
+          "atMs": 130800,
+          "tool": "end_call_with_outcome"
+        }
+      ],
+      "recordingUrl": "/api/recordings/sim-lowball-1",
+      "redFlags": [
+        {
+          "id": "below_market_30",
+          "severity": "high",
+          "label": "More than 30% below fair-market benchmark",
+          "explain": "A quote this far below the benchmark is a warning sign, not a win. It usually means fees are being withheld until moving day.",
+          "citation": "FMCSA: sight-unseen and underpriced estimates are 40% more likely to change on moving day.",
+          "evidenceTurns": []
+        },
+        {
+          "id": "non_binding",
+          "severity": "high",
+          "label": "Non-binding estimate",
+          "explain": "A non-binding estimate can legally rise on moving day. Binding or not-to-exceed is the protection you want.",
+          "citation": "BBB logs 13,000+ mover complaints a year, largely unexpected price hikes.",
+          "evidenceTurns": []
+        },
+        {
+          "id": "fees_withheld",
+          "severity": "medium",
+          "label": "Add-on fees only disclosed when pushed",
+          "explain": "Fees that only appear when you ask are the mechanism behind the 30%+ inflated final bill.",
+          "citation": null,
+          "evidenceTurns": [
+            11,
+            11,
+            11,
+            11,
+            11,
+            11
+          ]
+        },
+        {
+          "id": "large_deposit",
+          "severity": "medium",
+          "label": "Deposit above 20% of total",
+          "explain": "Large upfront deposits are associated with hostage-load disputes, which have nearly tripled since 2017.",
+          "citation": null,
+          "evidenceTurns": []
+        },
+        {
+          "id": "no_usdot",
+          "severity": "medium",
+          "label": "No USDOT / state license number given",
+          "explain": "Licensed interstate and intrastate movers can produce a USDOT or state number on request.",
+          "citation": null,
+          "evidenceTurns": []
+        },
+        {
+          "id": "released_valuation_only",
+          "severity": "low",
+          "label": "Released-value coverage only ($0.60/lb)",
+          "explain": "$0.60 per pound means a 50 lb TV is covered for $30. Ask what full-value protection costs.",
+          "citation": null,
+          "evidenceTurns": []
+        }
+      ],
+      "citations": [],
+      "concession": null,
+      "errors": []
+    },
+    {
+      "id": "call_sim-upsell-1",
+      "jobId": "job_daniel_rockhill",
+      "specVersion": 1,
+      "specFingerprint": "9d380f52",
+      "role": "caller",
+      "counterpartyId": "upsell",
+      "company": "Carolina Premier Relocation",
+      "style": "Upseller",
+      "phone": "+1-704-555-0193",
+      "conversationId": "sim-upsell-1",
+      "provider": "simulation",
+      "status": "completed",
+      "startedAt": "2026-07-19T09:57:15.536Z",
+      "endedAt": "2026-07-19T09:59:34.751Z",
+      "durationMs": 139215,
+      "outcome": "quote",
+      "quote": {
+        "binding": true,
+        "lineItems": [
+          {
+            "code": "base",
+            "label": "Base labor — 3-person crew x 8.32 hrs",
+            "amount": 1564.99,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "travel",
+            "label": "Travel time — 0.99 hrs for 45 mi",
+            "amount": 186.22,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "truck",
+            "label": "Truck fee",
+            "amount": 108.3,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "fuel",
+            "label": "Fuel surcharge — 45 mi",
+            "amount": 59,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "elevator",
+            "label": "Elevator handling x1",
+            "amount": 68.4,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "longCarry",
+            "label": "Long carry — 130 ft total",
+            "amount": 125.4,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "specialItem",
+            "label": "Special item — treadmill",
+            "amount": 102.6,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "surcharge",
+            "label": "Peak-date surcharge (8%)",
+            "amount": 207.74,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "materials",
+            "label": "Box & materials package",
+            "amount": 273.6,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "packing",
+            "label": "Recommended partial packing service",
+            "amount": 364.8,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "stairs",
+            "label": "Stairs — 2 flights",
+            "amount": 171,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 10
+          },
+          {
+            "code": "valuation",
+            "label": "Full-value protection",
+            "amount": 210.9,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 10
+          }
+        ],
+        "total": 3442.95,
+        "openingTotal": 3061.05,
+        "currency": "USD",
+        "usdotNumber": "USDOT 3115902",
+        "valuationOffered": "fullValue",
+        "depositAmount": 516.44,
+        "terms": [
+          "binding estimate",
+          "15% deposit at booking"
+        ]
+      },
+      "callback": null,
+      "decline": null,
+      "transcript": [
+        {
+          "index": 0,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Carolina Premier Relocation, this is dispatch.",
+          "atMs": 3270,
+          "tool": null
+        },
+        {
+          "index": 1,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Hi, I should say upfront — I'm an AI assistant calling on behalf of a customer, Daniel Reyes, who is getting quotes for a move. Is it alright if I run through the details with you?",
+          "atMs": 12570,
+          "tool": null
+        },
+        {
+          "index": 2,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Hold on — am I talking to a real person, or is this one of those robocalls?",
+          "atMs": 17145,
+          "tool": null
+        },
+        {
+          "index": 3,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Yes, I am — I'm an AI assistant, and Daniel Reyes is a real customer with a real move on 2026-08-15. I have the full inventory in front of me and I can book today if the number works.",
+          "atMs": 26580,
+          "tool": null
+        },
+        {
+          "index": 4,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Huh. Alright, at least you said so. Go ahead.",
+          "atMs": 29805,
+          "tool": null
+        },
+        {
+          "index": 5,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Here's the job, and I'll give you the same detail I'm giving everyone:\n- Route: 1420 Cherry Rd, Apt 3B, Rock Hill SC 29732 -> 812 Central Ave, Unit 5, Charlotte NC 28204 (45 miles)\n- Date: 2026-08-15 (customer has some flexibility)\n- Size: 2-bedroom\n- Large items: 1x Queen bed frame and mattress (disassembly required), 1x Full bed frame and mattress, 2x 6-drawer dresser, 3x Nightstand, 1x 3-seat sofa (will not fit in elevator), 2x Armchair, 1x 65-inch TV (no original box), 1x TV console, 3x Bookshelf (must be emptied), 1x Dining table (legs come off), 4x Dining chair, 1x Desk, 1x Office chair, 1x Filing cabinet, 1x Washer (needs disconnecting), 1x Dryer (needs disconnecting), 1x Refrigerator (customer owns it), 34x Medium boxes (customer packed), 4x Wardrobe boxes, 2x Bicycle, 1x Treadmill (heavy, does not fold)\n- Special items: treadmill — NordicTrack, approx 300 lb, does not fold\n- Pickup access: floor 3, 2 flight(s) of stairs, 90 ft carry from truck (No loading zone; truck must park on Cherry Rd)\n- Delivery access: floor 2, elevator available, 40 ft carry from truck (Loading dock must be reserved with building management)\n- Packing: none\n- Coverage wanted: full-value protection\n- Access notes: Daniel is packing all boxes himself. Elevator at the Charlotte building is small — the 3-seat sofa will not fit and has to go up the stairwell. Dock reservation needed before 8am.",
+          "atMs": 40005,
+          "tool": null
+        },
+        {
+          "index": 6,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "What would that run, and can you break it out by line so I can compare it fairly against the others?",
+          "atMs": 45705,
+          "tool": null
+        },
+        {
+          "index": 7,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Alright. For that job I'm at $3,061. That's base labor — 3-person crew x 8.32 hrs is $1,565, travel time — 0.99 hrs for 45 mi is $186, truck fee is $108, fuel surcharge — 45 mi is $59, elevator handling x1 is $68, long carry — 130 ft total is $125, special item — treadmill is $103, peak-date surcharge (8%) is $208, box & materials package is $274, recommended partial packing service is $365.",
+          "atMs": 55905,
+          "tool": null
+        },
+        {
+          "index": 8,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Logging that — 10 line items, $3,061.",
+          "atMs": 58770,
+          "tool": "log_quote_line_item"
+        },
+        {
+          "index": 9,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "One thing I ask everybody, and it's the whole reason I'm calling instead of using a website: is there anything that could be added on moving day that isn't in that number?",
+          "atMs": 67665,
+          "tool": null
+        },
+        {
+          "index": 10,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Fair question. stairs — 2 flights is $171, full-value protection is $211. That'd be on top.",
+          "atMs": 72960,
+          "tool": null
+        },
+        {
+          "index": 11,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Understood — logging those too.",
+          "atMs": 75555,
+          "tool": "log_quote_line_item"
+        },
+        {
+          "index": 12,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Now, I'd really recommend our packing package — the materials alone are worth it, and honestly most people underestimate the kitchen.",
+          "atMs": 82740,
+          "tool": null
+        },
+        {
+          "index": 13,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Daniel Reyes is packing everything personally, so I'll keep that out of the comparison — but tell me the price so it's on the record.",
+          "atMs": 89925,
+          "tool": null
+        },
+        {
+          "index": 14,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "It's in the number I gave you. I'd hate for you to skip it.",
+          "atMs": 93780,
+          "tool": null
+        },
+        {
+          "index": 15,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Is that a binding estimate, or can it move on the day?",
+          "atMs": 97410,
+          "tool": null
+        },
+        {
+          "index": 16,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "That's binding. What I quote is what you pay, assuming the inventory matches what you told me.",
+          "atMs": 102840,
+          "tool": null
+        },
+        {
+          "index": 17,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "What's your USDOT or state licence number?",
+          "atMs": 105930,
+          "tool": null
+        },
+        {
+          "index": 18,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "USDOT 3115902. Look us up.",
+          "atMs": 108300,
+          "tool": null
+        },
+        {
+          "index": 19,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "And coverage — what's included, and what does full-value protection cost?",
+          "atMs": 112785,
+          "tool": null
+        },
+        {
+          "index": 20,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Standard is released value, sixty cents a pound, but full-value is in the number I quoted you.",
+          "atMs": 118215,
+          "tool": null
+        },
+        {
+          "index": 21,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Deposit and cancellation terms?",
+          "atMs": 120810,
+          "tool": null
+        },
+        {
+          "index": 22,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "$516 to hold the date — that's 15%. Refundable up to 72 hours out.",
+          "atMs": 124980,
+          "tool": null
+        },
+        {
+          "index": 23,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "That puts you at $3,443 all in. I'm getting the same itemisation from a few other companies and I'll come back to you today.",
+          "atMs": 131760,
+          "tool": null
+        },
+        {
+          "index": 24,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Sounds good. We'd love the work.",
+          "atMs": 134400,
+          "tool": null
+        },
+        {
+          "index": 25,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Ending with a structured quote outcome: $3,443.",
+          "atMs": 137715,
+          "tool": "end_call_with_outcome"
+        }
+      ],
+      "recordingUrl": "/api/recordings/sim-upsell-1",
+      "redFlags": [
+        {
+          "id": "fees_withheld",
+          "severity": "medium",
+          "label": "Add-on fees only disclosed when pushed",
+          "explain": "Fees that only appear when you ask are the mechanism behind the 30%+ inflated final bill.",
+          "citation": null,
+          "evidenceTurns": [
+            10,
+            10
+          ]
+        }
+      ],
+      "citations": [],
+      "concession": null,
+      "errors": []
+    },
+    {
+      "id": "call_sim-stonewall-1",
+      "jobId": "job_daniel_rockhill",
+      "specVersion": 1,
+      "specFingerprint": "9d380f52",
+      "role": "caller",
+      "counterpartyId": "stonewall",
+      "company": "Piedmont Family Movers",
+      "style": "Stonewaller",
+      "phone": "+1-704-555-0116",
+      "conversationId": "sim-stonewall-1",
+      "provider": "simulation",
+      "status": "completed",
+      "startedAt": "2026-07-19T09:57:15.539Z",
+      "endedAt": "2026-07-19T09:58:25.874Z",
+      "durationMs": 70335,
+      "outcome": "callback",
+      "quote": null,
+      "callback": {
+        "promisedBy": "Rachel, Piedmont Family Movers",
+        "contact": "+1-803-555-0177",
+        "note": "Walkthrough Thursday AM, written estimate same afternoon. No phone quote given."
+      },
+      "decline": null,
+      "transcript": [
+        {
+          "index": 0,
+          "role": "counterparty",
+          "speaker": "Piedmont Family Movers",
+          "text": "Piedmont Family Movers, this is dispatch.",
+          "atMs": 3045,
+          "tool": null
+        },
+        {
+          "index": 1,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Hi, I should say upfront — I'm an AI assistant calling on behalf of a customer, Daniel Reyes, who is getting quotes for a move. Is it alright if I run through the details with you?",
+          "atMs": 12345,
+          "tool": null
+        },
+        {
+          "index": 2,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Here's the job, and I'll give you the same detail I'm giving everyone:\n- Route: 1420 Cherry Rd, Apt 3B, Rock Hill SC 29732 -> 812 Central Ave, Unit 5, Charlotte NC 28204 (45 miles)\n- Date: 2026-08-15 (customer has some flexibility)\n- Size: 2-bedroom\n- Large items: 1x Queen bed frame and mattress (disassembly required), 1x Full bed frame and mattress, 2x 6-drawer dresser, 3x Nightstand, 1x 3-seat sofa (will not fit in elevator), 2x Armchair, 1x 65-inch TV (no original box), 1x TV console, 3x Bookshelf (must be emptied), 1x Dining table (legs come off), 4x Dining chair, 1x Desk, 1x Office chair, 1x Filing cabinet, 1x Washer (needs disconnecting), 1x Dryer (needs disconnecting), 1x Refrigerator (customer owns it), 34x Medium boxes (customer packed), 4x Wardrobe boxes, 2x Bicycle, 1x Treadmill (heavy, does not fold)\n- Special items: treadmill — NordicTrack, approx 300 lb, does not fold\n- Pickup access: floor 3, 2 flight(s) of stairs, 90 ft carry from truck (No loading zone; truck must park on Cherry Rd)\n- Delivery access: floor 2, elevator available, 40 ft carry from truck (Loading dock must be reserved with building management)\n- Packing: none\n- Coverage wanted: full-value protection\n- Access notes: Daniel is packing all boxes himself. Elevator at the Charlotte building is small — the 3-seat sofa will not fit and has to go up the stairwell. Dock reservation needed before 8am.",
+          "atMs": 22545,
+          "tool": null
+        },
+        {
+          "index": 3,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "What would a job like that run?",
+          "atMs": 25140,
+          "tool": null
+        },
+        {
+          "index": 4,
+          "role": "counterparty",
+          "speaker": "Piedmont Family Movers",
+          "text": "We don't give prices over the phone — we do a walkthrough first, that's just our policy.",
+          "atMs": 30300,
+          "tool": null
+        },
+        {
+          "index": 5,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "That's completely fair, and I'd rather you see it than guess. Before I let you go — for a job this size on that date, is there a typical range you'd expect? I'll treat it as a range, not a quote.",
+          "atMs": 40275,
+          "tool": null
+        },
+        {
+          "index": 6,
+          "role": "counterparty",
+          "speaker": "Piedmont Family Movers",
+          "text": "I really can't put a number on it without seeing the place. I'd be doing you a disservice.",
+          "atMs": 45525,
+          "tool": null
+        },
+        {
+          "index": 7,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Understood, I'll leave it there. Can we book the walkthrough, and can I get a name and a time you'll come back to us with the estimate?",
+          "atMs": 52800,
+          "tool": null
+        },
+        {
+          "index": 8,
+          "role": "counterparty",
+          "speaker": "Piedmont Family Movers",
+          "text": "Sure — I'm Rachel, I can get someone out Thursday morning and you'd have a written estimate the same afternoon. What's the best number for Daniel Reyes?",
+          "atMs": 60840,
+          "tool": null
+        },
+        {
+          "index": 9,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "+1-803-555-0177. Thanks Rachel — I'm recording this as a callback commitment, not a quote, so it doesn't get compared against numbers we actually have.",
+          "atMs": 68835,
+          "tool": "end_call_with_outcome"
+        }
+      ],
+      "recordingUrl": "/api/recordings/sim-stonewall-1",
+      "redFlags": [],
+      "citations": [],
+      "concession": null,
+      "errors": []
+    },
+    {
+      "id": "call_sim-upsell-close-1",
+      "jobId": "job_daniel_rockhill",
+      "specVersion": 1,
+      "specFingerprint": "9d380f52",
+      "role": "closer",
+      "counterpartyId": "upsell",
+      "company": "Carolina Premier Relocation",
+      "style": "Upseller",
+      "phone": "+1-704-555-0193",
+      "conversationId": "sim-upsell-close-1",
+      "provider": "simulation",
+      "status": "completed",
+      "startedAt": "2026-07-19T09:57:20.818Z",
+      "endedAt": "2026-07-19T09:59:03.358Z",
+      "durationMs": 102540,
+      "outcome": "quote",
+      "quote": {
+        "binding": true,
+        "lineItems": [
+          {
+            "code": "base",
+            "label": "Base labor — 3-person crew x 8.32 hrs",
+            "amount": 1564.99,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "travel",
+            "label": "Travel time — 0.99 hrs for 45 mi",
+            "amount": 186.22,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "truck",
+            "label": "Truck fee",
+            "amount": 108.3,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "fuel",
+            "label": "Fuel surcharge — 45 mi",
+            "amount": 59,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "elevator",
+            "label": "Elevator handling x1",
+            "amount": 68.4,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "longCarry",
+            "label": "Long carry — 130 ft total",
+            "amount": 125.4,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "specialItem",
+            "label": "Special item — treadmill",
+            "amount": 102.6,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "surcharge",
+            "label": "Peak-date surcharge (8%)",
+            "amount": 207.74,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "materials",
+            "label": "Box & materials package",
+            "amount": 273.6,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "packing",
+            "label": "Recommended partial packing service",
+            "amount": 364.8,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 7
+          },
+          {
+            "code": "stairs",
+            "label": "Stairs — 2 flights",
+            "amount": 171,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 10
+          },
+          {
+            "code": "valuation",
+            "label": "Full-value protection",
+            "amount": 210.9,
+            "disclosedOnlyWhenAsked": true,
+            "sourceTurn": 10
+          },
+          {
+            "code": "discount",
+            "label": "Negotiated reduction (competing quote: Ironclad Moving & Storage)",
+            "amount": -252.04,
+            "disclosedOnlyWhenAsked": false,
+            "sourceTurn": 9
+          }
+        ],
+        "total": 3190.91,
+        "openingTotal": 3442.95,
+        "currency": "USD",
+        "usdotNumber": "USDOT 3115902",
+        "valuationOffered": "fullValue",
+        "depositAmount": 478.64,
+        "terms": [
+          "Waive weekend / peak-date surcharge",
+          "Get packing or materials included",
+          "Full-value protection included"
+        ]
+      },
+      "callback": null,
+      "decline": null,
+      "transcript": [
+        {
+          "index": 0,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Carolina Premier Relocation.",
+          "atMs": 2460,
+          "tool": null
+        },
+        {
+          "index": 1,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Hi — it's the AI assistant calling back for Daniel Reyes, the 2-bedroom Rock Hill to Charlotte move on 2026-08-15. You quoted me $3,443.",
+          "atMs": 9780,
+          "tool": null
+        },
+        {
+          "index": 2,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "I remember. Has something changed?",
+          "atMs": 12510,
+          "tool": null
+        },
+        {
+          "index": 3,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Nothing on the job — same inventory, same stairs, same date. I've finished the other calls and I want to give you the chance to have it.",
+          "atMs": 19830,
+          "tool": null
+        },
+        {
+          "index": 4,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Pulling the competing quotes on file before I quote you anyone's number.",
+          "atMs": 24270,
+          "tool": "get_competing_quotes"
+        },
+        {
+          "index": 5,
+          "role": "system",
+          "speaker": "system",
+          "text": "get_competing_quotes returned 1 verified quote (conversation sim-tough-demo).",
+          "atMs": 28935,
+          "tool": null
+        },
+        {
+          "index": 6,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "I have an itemised quote from Ironclad Moving & Storage at $3,191 for this exact specification, and they confirmed it's binding. Can you match or beat it?",
+          "atMs": 37065,
+          "tool": null
+        },
+        {
+          "index": 7,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "Everybody tells me somebody's cheaper. Is that itemised, or is it a number off a website?",
+          "atMs": 42270,
+          "tool": null
+        },
+        {
+          "index": 8,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Itemised. Ironclad Moving & Storage, line by line — labor, travel, truck, fuel, stairs at both ends. I can read you the breakdown if you want it.",
+          "atMs": 49995,
+          "tool": null
+        },
+        {
+          "index": 9,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "...Alright. Against a real itemised number I can go to $3,191. That's me giving up $252 of margin and I'm not going lower — below that I'm paying my crew out of pocket.",
+          "atMs": 58755,
+          "tool": null
+        },
+        {
+          "index": 10,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Logging the revised total — $3,191, down $252.",
+          "atMs": 62025,
+          "tool": "log_quote_line_item"
+        },
+        {
+          "index": 11,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Can you take the weekend surcharge off if I keep the date?",
+          "atMs": 65835,
+          "tool": null
+        },
+        {
+          "index": 12,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "I can take the weekend surcharge off if you keep the date. That's real money, don't ask me for both.",
+          "atMs": 71535,
+          "tool": null
+        },
+        {
+          "index": 13,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "If I stay at your price, will you include the packing materials?",
+          "atMs": 75615,
+          "tool": null
+        },
+        {
+          "index": 14,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "I'll throw the materials in — boxes, wrap, tape. That's on us.",
+          "atMs": 79605,
+          "tool": null
+        },
+        {
+          "index": 15,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Include full-value protection at that price and I will book today.",
+          "atMs": 83775,
+          "tool": null
+        },
+        {
+          "index": 16,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "I'll include full-value protection at that price rather than the sixty-cents-a-pound.",
+          "atMs": 88800,
+          "tool": null
+        },
+        {
+          "index": 17,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "So that's $3,191, plus 3 terms in writing. I'll put that in front of Daniel Reyes and come back to you today.",
+          "atMs": 94905,
+          "tool": null
+        },
+        {
+          "index": 18,
+          "role": "counterparty",
+          "speaker": "Carolina Premier Relocation",
+          "text": "I'll hold the date until end of day.",
+          "atMs": 97725,
+          "tool": null
+        },
+        {
+          "index": 19,
+          "role": "agent",
+          "speaker": "FairMove Agent",
+          "text": "Ending with a revised structured quote: $3,191.",
+          "atMs": 101040,
+          "tool": "end_call_with_outcome"
+        }
+      ],
+      "recordingUrl": "/api/recordings/sim-upsell-close-1",
+      "redFlags": [
+        {
+          "id": "fees_withheld",
+          "severity": "medium",
+          "label": "Add-on fees only disclosed when pushed",
+          "explain": "Fees that only appear when you ask are the mechanism behind the 30%+ inflated final bill.",
+          "citation": null,
+          "evidenceTurns": [
+            10,
+            10
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "quoteRecordId": "call_sim-tough-demo",
+          "conversationId": "sim-tough-demo",
+          "company": "Ironclad Moving & Storage",
+          "total": 3190.91,
+          "turnIndex": 6
+        }
+      ],
+      "concession": {
+        "priceBefore": 3442.95,
+        "priceAfter": 3190.91,
+        "delta": 252.04,
+        "deltaPct": 0.07,
+        "termsWon": [
+          "Waive weekend / peak-date surcharge",
+          "Get packing or materials included",
+          "Full-value protection included"
+        ],
+        "causedBy": [
+          {
+            "quoteRecordId": "call_sim-tough-demo",
+            "conversationId": "sim-tough-demo",
+            "company": "Ironclad Moving & Storage",
+            "total": 3190.91,
+            "turnIndex": 6
+          }
+        ],
+        "counterpartyTurn": 9
+      },
+      "errors": []
+    },
+    {
+      "id": "intake_conv_1001kxwxav3wf7fa2jfxj0cjsywc",
+      "jobId": "intake",
+      "specVersion": 0,
+      "specFingerprint": "intake",
+      "role": "estimator",
+      "counterpartyId": "customer",
+      "company": "Voice intake interview",
+      "style": "Estimator",
+      "phone": "browser session",
+      "conversationId": "conv_1001kxwxav3wf7fa2jfxj0cjsywc",
+      "provider": "elevenlabs",
+      "status": "completed",
+      "startedAt": "2026-07-19T10:04:19.397Z",
+      "endedAt": "2026-07-19T10:04:42.590Z",
+      "durationMs": 23193,
+      "outcome": null,
+      "quote": null,
+      "callback": null,
+      "decline": null,
+      "transcript": [
+        {
+          "index": 0,
+          "role": "agent",
+          "speaker": "FairMove Estimator",
+          "text": "Hi, I'm FairMove's AI estimator. I'll ask a few questions so every mover quotes the exact same job. Where are you moving from and to?",
+          "atMs": 0,
+          "tool": null
+        },
+        {
+          "index": 1,
+          "role": "counterparty",
+          "speaker": "Customer",
+          "text": "I'm moving from San Francisco to California, Las Vegas.",
+          "atMs": 14914,
+          "tool": null
+        },
+        {
+          "index": 2,
+          "role": "agent",
+          "speaker": "FairMove Estimator",
+          "text": "Great, thank you. Could you please provide the ZIP codes for both locations?",
+          "atMs": 15147,
+          "tool": null
+        },
+        {
+          "index": 3,
+          "role": "counterparty",
+          "speaker": "Customer",
+          "text": "Okay, bye.",
+          "atMs": 22860,
+          "tool": null
+        },
+        {
+          "index": 4,
+          "role": "agent",
+          "speaker": "FairMove Estimator",
+          "text": "If you have any more questions or need assistance in the future, feel free to reach out. Have a great day!",
+          "atMs": 23193,
+          "tool": null
+        }
+      ],
+      "recordingUrl": null,
+      "redFlags": [],
+      "citations": [],
+      "concession": null,
+      "errors": []
+    }
+  ],
+  "webhookLog": []
+}

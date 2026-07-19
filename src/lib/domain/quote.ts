@@ -100,7 +100,7 @@ export const CallRecordSchema = z.object({
   specVersion: z.number().int(),
   specFingerprint: z.string(),
 
-  role: z.enum(["caller", "closer"]),
+  role: z.enum(["caller", "closer", "estimator"]),
   counterpartyId: z.string(),
   company: z.string(),
   style: z.string(),

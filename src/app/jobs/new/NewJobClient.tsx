@@ -26,6 +26,7 @@ function NewJobWorkspace() {
   const [setup, setSetup] = useState<SetupStatus | null>(null);
   const [draft, setDraft] = useState<JobSpecDraft>({ vertical: "moving" });
   const [messages, setMessages] = useState<LiveMessage[]>([]);
+  const messagesRef = useRef<LiveMessage[]>([]);
   const [conversationId, setConversationId] = useState<string | null>(null);
   const conversationIdRef = useRef<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
@@ -49,8 +50,12 @@ function NewJobWorkspace() {
     const data = await response.json();
     if (!response.ok) throw new Error(data.error ?? "Could not save the voice intake");
     setDraft(data.draft);
-    setNotice("Voice interview captured. Review the specification below before confirming.");
-    return `Saved. Missing fields: ${data.missing?.join(", ") || "none"}.`;
+    setNotice(
+      data.dropped?.length
+        ? `Voice interview captured. Some answers could not be read (${data.dropped.join(", ")}) — fill them in below.`
+        : "Voice interview captured. Review the specification below before confirming.",
+    );
+    return `Saved. Missing fields: ${data.missing?.join(", ") || "none"}. The customer will review the rest on screen — thank them and end the call.`;
   }, [draft]);
 
   const conversation = useConversation({
@@ -67,8 +72,21 @@ function NewJobWorkspace() {
       setMessages((current) => {
         const previous = current[current.length - 1];
         if (previous?.role === role && previous.message === message) return current;
-        return [...current, { role, message, at: Date.now() }];
+        const next = [...current, { role, message, at: Date.now() }];
+        messagesRef.current = next;
+        return next;
       });
+    },
+    onDisconnect: () => {
+      const id = conversationIdRef.current;
+      const turns = messagesRef.current;
+      if (!id || turns.length === 0) return;
+      // Persist the interview so it appears in Call logs; fire-and-forget.
+      fetch("/api/intake/voice/log", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ conversationId: id, messages: turns }),
+      }).catch(() => {});
     },
     onError: (message) => setError(String(message)),
   });
