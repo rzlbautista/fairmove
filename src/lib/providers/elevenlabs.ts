@@ -81,6 +81,28 @@ export async function createAgent(def: AgentDefinition): Promise<string> {
   return out.agent_id;
 }
 
+const PhoneNumbersResponse = z.array(
+  z
+    .object({
+      phone_number_id: z.string(),
+      phone_number: z.string().optional(),
+      label: z.string().nullable().optional(),
+    })
+    .passthrough(),
+);
+
+/** Numbers already imported into ElevenLabs (via Twilio) that can place outbound calls. */
+export async function listPhoneNumbers(): Promise<
+  Array<{ phoneNumberId: string; phoneNumber: string | null; label: string | null }>
+> {
+  const out = await request("/v1/convai/phone-numbers", { method: "GET" }, PhoneNumbersResponse);
+  return out.map((n) => ({
+    phoneNumberId: n.phone_number_id,
+    phoneNumber: n.phone_number ?? null,
+    label: n.label ?? null,
+  }));
+}
+
 const SignedUrlResponse = z.object({ signed_url: z.string() });
 
 /** Browser widget (the Estimator interview) connects through a signed URL. */

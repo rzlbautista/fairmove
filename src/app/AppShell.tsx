@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BarChart3, FileCheck2, LayoutDashboard, Menu, PhoneCall, Plus, X } from "lucide-react";
-import { useState } from "react";
+import { BarChart3, FileCheck2, LayoutDashboard, Menu, PhoneCall, Plus, Settings, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const nav = [
   { href: "/", label: "Overview", icon: LayoutDashboard },
@@ -11,11 +11,28 @@ const nav = [
   { href: "/calls", label: "Call logs", icon: PhoneCall },
   { href: "/results", label: "Results", icon: FileCheck2 },
   { href: "/analytics", label: "Analytics", icon: BarChart3 },
+  { href: "/settings", label: "Settings", icon: Settings },
 ];
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mode, setMode] = useState<{ label: string; live: boolean } | null>(null);
+
+  useEffect(() => {
+    fetch("/api/setup/elevenlabs")
+      .then((response) => response.json())
+      .then((status) =>
+        setMode(
+          status.realCallReadiness?.ready
+            ? { label: "Live calls ready", live: true }
+            : status.estimatorReady
+              ? { label: "Voice live · calls simulated", live: true }
+              : { label: "Simulation", live: false },
+        ),
+      )
+      .catch(() => setMode({ label: "Simulation", live: false }));
+  }, [pathname]);
 
   const links = (
     <>
@@ -71,7 +88,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           <div className="topbar-title">
             Voice agents that call, compare, and negotiate
           </div>
-          <div className="mode-pill live">ElevenLabs ready</div>
+          <div className={`mode-pill ${mode?.live ? "live" : ""}`}>{mode?.label ?? "…"}</div>
         </header>
         <main className="page-content">{children}</main>
       </div>

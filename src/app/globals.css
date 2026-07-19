@@ -1445,6 +1445,54 @@ details summary:hover {
   margin: 0 0 13px;
 }
 
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.settings-grid .setup-step.wide {
+  grid-column: 1 / -1;
+}
+
+.setup-step h2 {
+  margin: 10px 0 6px;
+  font-size: 16px;
+}
+
+.setup-step p {
+  margin: 0 0 14px;
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.setup-step .setup-id {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  word-break: break-all;
+  color: var(--text-dim);
+}
+
+.step-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.step-state.done {
+  color: #43c990;
+}
+
+@media (max-width: 860px) {
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .voice-controls {
   display: flex;
   flex-direction: column;
