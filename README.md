@@ -39,6 +39,26 @@ npm test              # 32 tests covering the guarantees below
 
 **No API keys are required.** With no credentials, FairMove runs against its built counter-agents — one of the three counterparty setups the brief explicitly allows. Add `ELEVENLABS_API_KEY` and it switches to live ElevenLabs voice; see [`.env.example`](.env.example).
 
+### Going live, in order
+
+1. Put `ELEVENLABS_API_KEY` in `.env` and restart `npm run dev`.
+2. Open **Settings** in the app. Create the **Estimator** (browser voice interview) and the **Caller** (outbound calls) with one click each — no agent IDs to copy around.
+3. Import a Twilio number in ElevenLabs (Agents Platform → Phone Numbers), then press **Detect phone number**.
+4. Set `FAIRMOVE_ALLOW_REAL_CALLS=true` and restart. Until that flag is set, real PSTN dialling stays off by design.
+
+Step 2 alone already gives you the live voice interview with real-time transcript on the **New move** page.
+
+## The dashboard
+
+| Page | What it shows |
+|---|---|
+| **Overview** | Market spread, live metrics, and the one-click full demo loop |
+| **New move** | Live ElevenLabs voice interview (real-time transcript) + document/photo OCR intake + spec confirmation |
+| **Call logs** | Every call with structured outcome, full transcript, and recording playback |
+| **Results** | The Mission Control report: call board, comparison, negotiation, evidence |
+| **Analytics** | Quote spread, savings won, disclosure and outcome statistics |
+| **Settings** | One-click ElevenLabs provisioning and real-call readiness checklist |
+
 ---
 
 ## The three modules
