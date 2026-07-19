@@ -13,6 +13,7 @@ import {
 } from "../providers/elevenlabs";
 import { extractQuoteFromTranscript } from "../extract/quoteExtractor";
 import { formatUSD } from "../domain/quote";
+import { readProviderConfig } from "../providers/providerConfig";
 
 /**
  * Real outbound calling through ElevenLabs + Twilio.
@@ -41,9 +42,10 @@ export interface RealCallInput {
 }
 
 function readiness(): { ready: boolean; reason: string } {
+  const provider = readProviderConfig();
   if (!elevenLabsConfigured()) return { ready: false, reason: "ELEVENLABS_API_KEY not set" };
-  if (!process.env.ELEVENLABS_AGENT_ID_CALLER) return { ready: false, reason: "ELEVENLABS_AGENT_ID_CALLER not set" };
-  if (!process.env.ELEVENLABS_PHONE_NUMBER_ID) return { ready: false, reason: "ELEVENLABS_PHONE_NUMBER_ID not provisioned" };
+  if (!provider.callerAgentId) return { ready: false, reason: "ELEVENLABS_AGENT_ID_CALLER not set" };
+  if (!provider.phoneNumberId) return { ready: false, reason: "ELEVENLABS_PHONE_NUMBER_ID not provisioned" };
   if (process.env.FAIRMOVE_ALLOW_REAL_CALLS !== "true") {
     return { ready: false, reason: "FAIRMOVE_ALLOW_REAL_CALLS is not 'true' — real dialling is opt-in" };
   }
@@ -58,6 +60,7 @@ export async function dispatchRealCall(input: RealCallInput): Promise<CallRecord
   }
 
   const { spec, config, party, role, jobId } = input;
+  const provider = readProviderConfig();
 
   const prompt =
     role === "closer" && input.leverage
@@ -70,15 +73,15 @@ export async function dispatchRealCall(input: RealCallInput): Promise<CallRecord
 
   const agentId =
     role === "closer"
-      ? process.env.ELEVENLABS_AGENT_ID_CLOSER ?? process.env.ELEVENLABS_AGENT_ID_CALLER!
-      : process.env.ELEVENLABS_AGENT_ID_CALLER!;
+      ? provider.closerAgentId ?? provider.callerAgentId!
+      : provider.callerAgentId!;
 
   const startedAt = new Date().toISOString();
 
   // One agent serves every job; the job travels as dynamic variables.
   const { conversationId } = await startOutboundCall({
     agentId,
-    agentPhoneNumberId: process.env.ELEVENLABS_PHONE_NUMBER_ID!,
+    agentPhoneNumberId: provider.phoneNumberId!,
     toNumber: party.phone,
     dynamicVariables: {
       customer_name: spec.customerName,

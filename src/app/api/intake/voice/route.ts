@@ -3,6 +3,7 @@ import { JobSpecDraftSchema } from "@/lib/domain/jobspec";
 import { mergeDrafts } from "@/lib/extract/documentIntake";
 import { loadVertical } from "@/lib/config/vertical";
 import { elevenLabsConfigured, getSignedUrl } from "@/lib/providers/elevenlabs";
+import { readProviderConfig } from "@/lib/providers/providerConfig";
 import { estimatorPrompt } from "@/lib/agents/prompts";
 
 export const runtime = "nodejs";
@@ -16,8 +17,10 @@ export const dynamic = "force-dynamic";
  */
 export async function GET() {
   const config = loadVertical();
+  const provider = readProviderConfig();
+  const estimatorAgentId = provider.estimatorAgentId;
 
-  if (!elevenLabsConfigured() || !process.env.ELEVENLABS_AGENT_ID_ESTIMATOR) {
+  if (!elevenLabsConfigured() || !estimatorAgentId) {
     return NextResponse.json({
       mode: "script",
       reason: !elevenLabsConfigured()
@@ -29,11 +32,11 @@ export async function GET() {
   }
 
   try {
-    const signedUrl = await getSignedUrl(process.env.ELEVENLABS_AGENT_ID_ESTIMATOR);
+    const signedUrl = await getSignedUrl(estimatorAgentId);
     return NextResponse.json({
       mode: "live",
       signedUrl,
-      agentId: process.env.ELEVENLABS_AGENT_ID_ESTIMATOR,
+      agentId: estimatorAgentId,
       questions: config.jobSpecTaxonomy.interviewQuestions,
     });
   } catch (err) {

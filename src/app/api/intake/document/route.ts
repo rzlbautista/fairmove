@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { parseDocument, mergeDrafts } from "@/lib/extract/documentIntake";
+import { extractDocumentWithVision } from "@/lib/extract/visionIntake";
+import { missingRequiredFields } from "@/lib/domain/jobspec";
 import { loadVertical } from "@/lib/config/vertical";
 
 export const runtime = "nodejs";
@@ -29,14 +31,35 @@ export async function POST(request: Request) {
       filename = file.name || filename;
 
       if (/\.(png|jpe?g|webp|heic|pdf)$/i.test(filename)) {
-        // Vision/OCR would run here. Rather than pretend, we say what is needed.
-        return NextResponse.json(
-          {
-            error: `${filename} needs vision/OCR, which is not configured. Set OPENAI_API_KEY, or paste the inventory as text.`,
-            needsOcr: true,
-          },
-          { status: 415 },
-        );
+        if (!process.env.OPENAI_API_KEY) {
+          return NextResponse.json(
+            {
+              error: `${filename} needs vision/OCR. Set OPENAI_API_KEY, or upload/paste a text inventory.`,
+              needsOcr: true,
+            },
+            { status: 503 },
+          );
+        }
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        const mimeType =
+          file.type ||
+          (filename.toLowerCase().endsWith(".pdf") ? "application/pdf" : "image/jpeg");
+        const extracted = await extractDocumentWithVision(bytes, filename, mimeType);
+        const draftField = form.get("draft");
+        if (typeof draftField === "string") existingDraft = JSON.parse(draftField);
+        const draft = existingDraft
+          ? mergeDrafts(extracted.draft, existingDraft as Parameters<typeof mergeDrafts>[1])
+          : extracted.draft;
+        const config = loadVertical();
+        return NextResponse.json({
+          draft,
+          provenance: extracted.provenance,
+          missing: missingRequiredFields(draft, config.jobSpecTaxonomy.requiredFields),
+          warnings: extracted.warnings,
+          itemCount: draft.inventory?.length ?? 0,
+          requiredFields: config.jobSpecTaxonomy.requiredFields,
+          ocr: true,
+        });
       }
       text = await file.text();
       const draftField = form.get("draft");

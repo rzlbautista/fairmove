@@ -86,27 +86,6 @@ export default function MissionControl({
 
   return (
     <div className="shell">
-      <header className="masthead">
-        <div>
-          <h1 className="brand">
-            Fair<span>Move</span>
-          </h1>
-          <p className="tagline">
-            {config.headline} — voice agents that call, compare and haggle for your {config.label.toLowerCase()}.
-          </p>
-        </div>
-        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-          <span className={`mode-pill ${mode === "elevenlabs" ? "live" : ""}`}>
-            {mode === "elevenlabs" ? "ElevenLabs live" : "Simulated market"}
-          </span>
-          {!realCallReadiness.ready && (
-            <span className="mode-pill" title={realCallReadiness.reason}>
-              PSTN off
-            </span>
-          )}
-        </div>
-      </header>
-
       <SpreadBar config={config} benchmark={benchmark} calls={callerCalls} />
 
       <div className="actions">
@@ -117,6 +96,12 @@ export default function MissionControl({
           <a href={`/api/jobs/${report.jobId}/report`} target="_blank" rel="noreferrer">
             <button className="ghost">View raw report JSON</button>
           </a>
+        )}
+        <span className={`mode-pill ${mode === "elevenlabs" ? "live" : ""}`}>
+          {mode === "elevenlabs" ? "ElevenLabs" : "Simulated market"}
+        </span>
+        {!realCallReadiness.ready && (
+          <span className="mode-pill" title={realCallReadiness.reason}>PSTN off</span>
         )}
       </div>
 
